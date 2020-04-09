@@ -15,6 +15,7 @@ import { Facebook } from '@ionic-native/facebook/ngx'; */
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PipesModule } from './pipes/pipes.module';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { PipesModule } from './pipes/pipes.module';
     InAppBrowser,
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     GooglePlus,/* 
     Facebook, */
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

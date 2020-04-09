@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="full_loader" *ngIf="loading == 1">
+    <div class="text-loading">
+      Cargando Restaurant...
+      <div class="cont-loading">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading === 0" class="header animated fadeInDown" [style.backgroundImage]="'url(' + background + ')'">
+    <div class="headerButtonAndTitle">
+      <button left ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </div>
+  </div>
+  <div class="cont-circle" *ngIf="loading === 0">
+    <h3 class="welcome">{{ "Welcome_to_our_restaurant" | translation: language }}</h3>
+    <div (click)="OpenMenu()">
+      <div>
+        <button ion-button block>{{ "Restaurant_Menu" | translation: language }}</button>
+      </div>
+    </div>
+    <div (click)="CallWaiter()">
+      <div>
+        <button ion-button block>{{ "Call_the_waiter" | translation: language }}</button>
+      </div>
+    </div>
+    <div (click)="OpenStatusOrder()">
+      <div>
+        <button ion-button block>{{ "Show_order_status" | translation: language }}</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="back" ion-button color="light" outline (click)="GoMenu()">{{ "Back" | translation: language }}</button>
+
+  <div class="yellow__div"></div>
+</ion-content>

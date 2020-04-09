@@ -41,6 +41,7 @@ use --border-color: #fff; like this
 Reference https://ionicframework.com/docs/api
 
 1. In Ionic 5, ion-icon component properties updated so check if old one exits on new version of IonIcons.
+https://ionicons.com/
 
 2. 
 

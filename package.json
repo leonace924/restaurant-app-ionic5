@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ionic-native/barcode-scanner": "^5.23.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/deeplinks": "^5.23.0",
     "@ionic-native/google-plus": "^5.23.0",

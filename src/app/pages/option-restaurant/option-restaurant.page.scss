@@ -1,0 +1,124 @@
+:host {
+
+  .back {
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .25);
+    bottom: 20px;
+    border: none;
+    left: calc((100% - 80px) / 2);
+  }
+
+  .cont-circle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+
+    div {
+      width: 85%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  .headerButtonAndTitle {
+    display: flex;
+    flex-direction: row-reverse;
+
+    h3 {
+      padding-top: 1rem;
+    }
+  }
+
+  .welcome {
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+
+  .circle {
+    height: 150px;
+    width: 150px;
+    background: var(--ion-color-primary);
+    margin: 30px auto;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+  }
+
+  .circle img {
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    display: block;
+    margin: auto;
+  }
+
+  .mini-circle {
+    height: 80px;
+    margin: 10px;
+    display: flex;
+  }
+
+  .mini-circle div {
+    height: 85%;
+    width: 95%;
+    background: white;
+    margin: auto;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25), inset 0px 4px 4px rgba(27, 80, 97, .25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--ion-color-light);
+    color: val(--text-color-contrast);
+  }
+
+ 
+  /****************************************************
+			LOADING PERSONALIZADO
+			<div class="loader"></div>
+	****************************************************/
+
+  .loader {
+    border-left: 3px solid rgba(0, 0, 0, .3);
+    /* Light grey */
+    border-right: 3px solid rgba(0, 0, 0, .3);
+    border-top: 3px solid var(--ion-color-primary);
+    border-bottom: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 2s linear infinite;
+  }
+
+  .cont-loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .text-loading {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /****************************************************
+		FIN LOADING PERSONALIZADO
+  ****************************************************/
+  
+}
