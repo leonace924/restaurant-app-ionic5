@@ -1,0 +1,119 @@
+<!-- -->
+<ion-content class="auth-page">
+  <div class="scroll-content">
+
+    <div class="login-content">
+      <!-- Logo -->
+      <div class="ion-padding ion-text-center">
+        <div class="logo"></div>
+        <ion-text class="text">
+          <h2 class="text"><strong>{{ "SIGN_UP" | translation: language }}</strong></h2>
+        </ion-text>
+      </div>
+
+      <!-- Login form -->
+      <form class="list-form" #loginFrom="ngForm" (ngSubmit)="register()">
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="person" slot="start" class="text"></ion-icon>
+            {{ "First_Name" | translation: language }}
+          </ion-label>
+          <ion-input name="FirstName" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="person" slot="start" class="text"></ion-icon>
+            {{ "last_name" | translation: language }}
+          </ion-label>
+          <ion-input name="LastName" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="person" slot="start" class="text"></ion-icon>
+            {{ "username" | translation: language }}
+          </ion-label>
+          <ion-input name="Username" type="text" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="mail" slot="start" class="text"></ion-icon>
+            {{ "email" | translation: language }}
+          </ion-label>
+          <ion-input name="Email" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="DataRegister.get('Email').errors && DataRegister.get('Email').dirty">
+          <p color="danger" ion-text *ngIf="DataRegister.get('Email').hasError('required')">Field is required</p>
+          <p color="danger" ion-text *ngIf="DataRegister.get('Email').hasError('email')">It is not an email</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
+            {{ "password" | translation: language }}
+          </ion-label>
+          <ion-input name="password" type="password" required></ion-input>
+        </ion-item>
+
+      <!-- <ion-item *ngIf="DataRegister.get('password').errors && DataRegister.get('password').dirty">
+          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('required')">Field is required</p>
+          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('pattern')">This password is too common.</p>
+          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('pattern')">This password is completely numeric.</p>
+        </ion-item>
+          -->
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
+            {{ "Confirm_Password" | translation: language }}
+          </ion-label>
+          <ion-input name="passwordConfirmation" type="password" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-icon name="phone-portrait"slot="start" class="text"></ion-icon>
+            {{ "phone" | translation: language }}
+          </ion-label>
+          <ion-input name="Phone" type="text" required></ion-input>
+        </ion-item>
+      </form>
+
+      <div class="ion-margin-top">
+        <ion-button expand="block" color="dark" tappable (click)="register()" [disabled]="DataRegister.valid">
+            {{ "SIGN_UP" | translation: language }}
+        </ion-button>
+
+        <ion-text class="text ion-text-center">
+          <p class="text">{{ "Or_Sign_in_with" | translation: language }}</p>
+        </ion-text>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-button expand="block" class="btn-facebook"  (click)="LoginFacebook()">
+                <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col col-6>
+              <ion-button expand="block" class="btn-gplus" (click)="LoginGoogle()">
+                <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <!-- Other links -->
+      <div class="ion-text-center ion-margin-vertical">
+        <ion-text class="text">
+          <span class="text" tappable (click)="login()"> {{ "I_have_an_account" | translation: language }}</span>
+        </ion-text>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

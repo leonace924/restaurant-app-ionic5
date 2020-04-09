@@ -1,0 +1,83 @@
+<!-- -->
+<ion-content class="animated fadeIn login auth-page" overflow-scroll="true" scroll="true">
+  <div class="scroll-content">
+
+    <div class="login-content">
+      <!-- Logo -->
+      <div class="animated fadeInDown ion-text-center ion-padding-horizontal">
+        <div class="logo"></div>
+      </div>
+
+      <!-- Login form -->
+      <form class="list-form" #loginFrom="ngForm" (ngSubmit)="login()">
+        <ion-item>
+          <ion-label position="floating" class="ion-align-items-center">
+            <ion-icon name="mail" class="text"></ion-icon>
+            {{ "username" | translation: language }}
+          </ion-label>
+          <ion-input name="username" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="ion-align-items-center">
+            <ion-icon name="lock-closed" class="text"></ion-icon>
+            {{ "password" | translation: language }}
+          </ion-label>
+          <ion-input name="password" type="password" required></ion-input>
+        </ion-item>
+      </form>
+
+      <ion-text class="text item item-transparent ion-text-right" tappable (click)="forgotPass()">
+        <p class="text"><strong>{{ "recover_password" | translation: language }}</strong></p>
+      </ion-text>
+
+      <div class="language-sel-wrapper">
+        <ion-item class="item-transparent">
+          <ion-label>  {{ "language" | translation: language }} </ion-label>
+          <ion-select [(ngModel)]="selectOption" (ionChange)="changeLanguage($event)">
+            <ion-select-option value="es">Español</ion-select-option>
+            <ion-select-option value="en">English</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="button-wrapper">
+        <ion-button slot="start" expand="block" class="text" tappable (click)="login()">
+          <ion-icon name="log-in"></ion-icon>
+          {{ "Enterokay" | translation: language }}
+        </ion-button>
+
+        <ion-text class="text ion-text-center">
+          <p class="text">{{ "Or_Sign_in_with" | translation: language }}</p>
+        </ion-text>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-button expand="block" class="btn-facebook" (click)="LoginFacebook()">
+                <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <!--  <ion-col col-4>
+              <ion-button icon-only block class="btn-twitter">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </ion-button>
+            </ion-col> -->
+            <ion-col col-6>
+              <ion-button expand="block" class="btn-gplus" (click)="LoginGoogle()">
+                <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <!-- Other links -->
+      <div class="ion-margin-top">
+        <ion-text class="ion-text-center" color="secondary" tappable>
+          <h4 class="text" (click)="register()">{{ "New_here" | translation: language }} <strong>{{ "SIGN_UP" | translation: language }}</strong></h4>
+        </ion-text>
+      </div>
+    </div>
+  </div>
+</ion-content>

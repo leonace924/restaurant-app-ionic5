@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="image-container">
+    <div class="imgContainer" (click)="OpenMenu()">
+      <span class="span-images">
+        <img class="textImage" src="assets/images/menuArrow.svg" alt="Main Menu"/>
+      </span>
+    </div>
+    <div class="imgContainer" (click)="OpenPage()">
+      <span class="span-images">
+        <img class="textImage" src="../../../assets/images/QRmenu.svg" alt="QR menu"/>
+      </span>
+    </div>
+  </div>
+</ion-content>

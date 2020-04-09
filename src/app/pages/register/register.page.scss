@@ -1,0 +1,39 @@
+:host {
+  .item.md,
+  .text,
+  .auth-page .scroll-content .login-content .list-form ion-item input,
+  .auth-page .scroll-content .login-content .list-form ion-item ion-label {
+      color: #fff;
+  }
+
+  .login-content{
+      height: 680px;
+  }
+
+  .list-form {
+    ion-item {
+      --border-color: #dedede;
+      margin: 13px 8px 0 0;
+
+      ion-label {
+        display: flex;
+        align-items: center;
+        margin-top: 11px;
+        margin-bottom: 10px;
+
+        ion-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .item-native {
+      padding-inline-start: 0 !important;
+    }
+
+    ion-icon {
+      display: inline-block;
+      font-size: 1.2em;
+    }
+  }
+}

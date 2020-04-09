@@ -1,0 +1,77 @@
+
+<ion-split-pane contentId="main-content">
+
+  <ion-menu type="push" id="authenticated" contentId="main-content">
+    <ion-header>
+      <ion-toolbar *ngIf="usersProvider.DataUser" class="user-profile">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <div class="user-avatar">
+                <img src="../assets/images/avatar.jpeg">
+              </div>
+            </ion-col>
+            <ion-col col-8 class="ion-padding-top">
+              <ion-text class="no-margin bold text-white">
+                <h2 class="text">{{usersProvider.DataUser.username}}</h2>
+              </ion-text>
+              <ion-text color="light">
+                <span> {{ "Customer" | translation: language }} </span>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+
+        <!--  <ion-row no-padding class="other-data">
+            <ion-col no-padding class="column">
+              <button ion-button icon-left small full color="light" menuClose disabled>
+                <ion-icon name="contact"></ion-icon>
+                {{ "Edit_Profile" | translation: language }}  
+              </button>
+            </ion-col>
+            <ion-col no-padding class="column">
+              <button ion-button icon-left small full color="light" menuClose (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>
+                {{ "Log_Out" | translation: language }}   
+              </button>
+            </ion-col>
+          </ion-row> -->
+
+        </ion-grid>
+
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item button (click)="OpenPage('qrScannerPage')">
+          <ion-icon name="qr-code"></ion-icon>
+          {{ "QR_Scanner" | translation: language }}   
+        </ion-item>
+        <ion-item button class="menu-item" (click)="OpenPage('profilePage')">
+          <ion-icon name="person"></ion-icon>
+          {{ "Profile" | translation: language }}   
+        </ion-item> 
+<!--           <button ion-item class="menu-item">
+          <ion-icon name="heart"></ion-icon>
+          {{ "Favorites_History" | translation: language }}   
+        </button> 
+        <button ion-item class="menu-item">
+          <ion-icon name="map"></ion-icon>
+          {{ "Map" | translation: language }}
+        </button> 
+        <button ion-item class="menu-item">
+          <ion-icon name="star"></ion-icon>
+          {{ "Promotions" | translation: language }}
+        </button>  -->
+        <ion-item button menuClose (click)="logout()">
+          <ion-icon name="log-out"></ion-icon>
+          {{ "Log_Out" | translation: language }}   
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
