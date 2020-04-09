@@ -1,0 +1,65 @@
+:host {
+  .backg{
+    background: url("../assets/imgs/fondo_madera.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .CardContainer, .step {
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .scanBtn{
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    left: calc((100% - 140px)/2);
+    top: calc((100% - 60px) / 2); 
+    text-align: center;
+  }
+
+  .scanBtn ion-icon{
+    font-size: 170px;
+    color: #302d2d;
+    z-index: 99;
+  }
+
+  .textScan{
+    position: absolute;
+    width: 50px;
+    left: calc((100% - 50px)/2);
+    top: calc((100% - 0px) / 2);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+
+  .qr {
+    height: 250px;
+    width: 250px;
+    background: url(../assets/imgs/qr.png), #fff;
+    background-size: cover;
+    position: absolute;
+    left: calc((100% - 260px) /2);
+    top: calc((100% - 79px) /2);
+  }
+
+  .arrow {
+    position: absolute;
+    font-size: 76px;
+    color: #f09733;
+    top: calc((65%)/2);
+    left: calc((100% - 47px)/2);
+  }
+
+  .card {
+    box-shadow: none;
+  }
+}

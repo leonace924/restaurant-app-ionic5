@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>qr-scanner</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Main Menu
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div class="backg">
 
+    <div padding-horizontal text-center>
+      <ion-card class="CardContainer">
+
+          <ion-card-header class="step">
+              {{ "SCAN" | translation: language }}
+          </ion-card-header>
+        
+          <ion-card-content text-left>
+            <p class="step">1.  {{ "Scan_the_QR_code_to_request_a_dish_at_any_of_the_affiliated_restaurants" | translation: language }}</p>
+           
+            <p class="step">2.  {{ "Order_what_you_want" | translation: language }}</p>
+            
+            <p class="step">3. {{ "Display_the_status_of_your_order" | translation: language }}</p>
+          </ion-card-content>
+        
+      </ion-card>
+
+    </div>  
+  </div>
+
+  <div class="scanBtn" (click)="scan()">
+      <p class="textScan">SCAN</p>
+  </div>
+
+  <ion-icon class="arrow animated fadeInDown" ios="ios-arrow-down" md="md-arrow-down"></ion-icon>
+
+  <div class="qr" (click)="scan()">
+
+  </div>
+
+  <div class="yellow__div"></div>
 </ion-content>
