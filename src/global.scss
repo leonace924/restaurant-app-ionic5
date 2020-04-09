@@ -622,6 +622,7 @@ p {
 span {
   font-size: 1.4rem;
 }
+
 page-home {
   .imgContainer:nth-child(1) {
     display:flex;
@@ -639,5 +640,26 @@ page-home {
     padding-right: 1rem;
     background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) ), url('assets/images/menus.jpg') no-repeat;background-size: 50% 100%;
     background-color: #2d58d5;
+  }
+}
+
+page-qr-scanner {
+  .backg {
+    background: url("assets/images/fondo_madera.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .qr {
+    height: 230px;
+    width: 230px;
+    background: url('assets/images/qr.png'), #fff;
+    background-size: cover;
+    margin: auto;
   }
 }

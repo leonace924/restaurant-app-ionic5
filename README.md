@@ -5,6 +5,7 @@ Restaurant Ionic App
 
 ### Guide for migration to Ionic 5
 
+
 #### Initial Step
 
 Reference https://www.joshmorony.com/my-method-for-upgrading-from-ionic-3-to-ionic-4/ to make new project as Ionic 5 and copy old code one by one to new project
@@ -15,6 +16,7 @@ Reference https://www.joshmorony.com/my-method-for-upgrading-from-ionic-3-to-ion
 <ion-content padding> to <ion-content class="ion-padding">
 
 Reference https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#breaking-changes to change all classes
+
 
 #### SCSS part:
 1. In component scss file
@@ -37,6 +39,10 @@ use --border-color: #fff; like this
 #### Component part
 
 Reference https://ionicframework.com/docs/api
+
+1. In Ionic 5, ion-icon component properties updated so check if old one exits on new version of IonIcons.
+
+2. 
 
 
 #### Custom Pipe working fine on app.component.html but not on other pages
