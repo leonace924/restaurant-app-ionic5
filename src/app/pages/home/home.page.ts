@@ -20,13 +20,12 @@ export class HomePage {
     this.menu.swipeGesture(true);
   }
 
-  OpenMenu(){
-    //this.router.navigateByUrl('/login');
-    //this.navCtrl.push(MenuPage)
+  OpenMenu() {
+    this.router.navigateByUrl('/menu');
   }
 
-  OpenPage(){
-    //this.navCtrl.push(QrScannerPage);
+  OpenPage() {
+    this.router.navigateByUrl('/qr-scanner');
   }
 
 }

@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Main Menu
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item button class="menu-item">
+      <ion-icon name="heart"></ion-icon>
+      Favorites History
+    </ion-item> 
+    <ion-item button class="menu-item">
+      <ion-icon name="map"></ion-icon>
+      Map
+    </ion-item> 
+    <ion-item button class="menu-item" (click)="OpenProfilePage()">
+      <ion-icon name="person"></ion-icon>
+      Profile
+    </ion-item> 
+    <ion-item button class="menu-item">
+      <ion-icon name="star"></ion-icon>
+      Promotions
+    </ion-item> 
+  </ion-list>
 </ion-content>
