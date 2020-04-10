@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
-import { NavController, NavParams, ViewController, ToastController, LoadingController, AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { NavController, ToastController, LoadingController, AlertController } from '@ionic/angular';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 
 @Component({
@@ -10,24 +10,30 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 })
 export class OptionRestaurantPage implements OnInit {
 
-  DataQr:any;
+  DataQr: any;
   ListMenu: any;
   loading: any;
   error: any;
-  background:any = '../../assets/imgs/logo.png';
+  background: any = '../../assets/images/logo.png';
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams, 
-    public viewCtrl: ViewController,
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     private Menu: MenuRestaurantService,
+    private route: ActivatedRoute,
     public router: Router
   ) {
 
-    this.DataQr = navParams.get("DataQr");
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.DataQr = {
+          sit_id: this.router.getCurrentNavigation().extras.state.sit_id
+        };
+      }
+    });
+   
     this.Menu.setResto(this.DataQr);
     this.loading = 1;
   }
@@ -36,62 +42,65 @@ export class OptionRestaurantPage implements OnInit {
     console.log('ionViewDidLoad OptionRestaurantPage');
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.loading = 1;
-    this.Menu.ListMenu(this.DataQr.sit_id)
-      .then(data => {
-        this.ListMenu = data;
-        this.Menu.getResto(this.ListMenu.restaurant)
-          .then(resto => {
-            if(resto['logo']) {
-              this.background = `http://ec2-3-130-111-166.us-east-2.compute.amazonaws.com/${resto['logo']}`;
-            }
-          })
-          .catch(err => console.log(err))
-        this.loading = 0;
-      })
-      .catch(error => {
-        console.log("error");
-        this.loading = 0;
-        this.error = 1;
-      });
+    this.Menu.ListMenu(this.DataQr.sit_id).then(data => {
+      this.ListMenu = data;
+      this.Menu.getResto(this.ListMenu.restaurant)
+        .then(resto => {
+          if (resto['logo']) {
+            this.background = `http://ec2-3-130-111-166.us-east-2.compute.amazonaws.com/${resto['logo']}`;
+          }
+        })
+        .catch(err => console.log(err))
+      this.loading = 0;
+    })
+    .catch(err => {
+      console.log("error");
+      this.loading = 0;
+      this.error = 1;
+    });
   }
 
   GoMenu() {
-    this.navCtrl.setRoot(QrScannerPage,{DataQr:this.DataQr});
+    let DataQr: NavigationExtras = {
+      state: {
+        sit_id: this.DataQr.sit_id 
+      }
+    };
+    this.router.navigate(['qr-scanner'], DataQr);
   }
 
   OpenMenu(){
-    this.navCtrl.push( CategoriesPage,{DataQr:this.DataQr});
+    //this.navCtrl.push( CategoriesPage,{DataQr:this.DataQr});
   }
 
   OpenStatusOrder(){
-    this.navCtrl.push(OrderConfirmationPage, {DataQr:this.DataQr});
+    //this.navCtrl.push(OrderConfirmationPage, {DataQr:this.DataQr});
   }
 
-  CallWaiter(){
-    let loader = this.loadingCtrl.create({
-      content: "requesting the waiter",
+  async CallWaiter() {
+    let loader = await this.loadingCtrl.create({
+      message: "requesting the waiter",
     });
 
-    loader.present();
+    await loader.present();
 
-    this.Menu.CallWaiter(this.DataQr.sit_id).then(()=>{
+    this.Menu.CallWaiter(this.DataQr.sit_id).then(() => {
       loader.dismiss();
       this.presentToast("request sent successfully");
-    }).catch(error=>{
+    }).catch(err => {
       loader.dismiss();
       this.presentToast("Este restaurante no posee mozos");    
     });
   }
 
-
-  presentToast(text) {
-    const alert = this.alertCtrl.create({
-      title: text,
+  async presentToast(text) {
+    const alert = await this.alertCtrl.create({
+      header: text,
       buttons: ['Dismiss']
     });
-    alert.present();
+    await alert.present();
   }
 
 }

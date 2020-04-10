@@ -675,10 +675,12 @@ page-option-restaurant {
     background-position: center;
   }
 
-  ion-content {
+  .backg {
     background: url('assets/images/fondo_madera.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
   }
 
   .full_loader {

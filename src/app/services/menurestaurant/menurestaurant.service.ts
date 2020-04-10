@@ -13,7 +13,11 @@ export class MenuRestaurantService {
   timeOut:any;
   sincr: string;
 
-  constructor(public http: HttpClient, private userProvider: UsersService) {}
+  constructor(
+    public http: HttpClient, 
+    private userProvider: UsersService
+  ) {
+  }
   
   /************************************************************
    *             SETEAR EL QR POR TODA LA APP

@@ -1,12 +1,30 @@
 :host {
 
-  .back {
-    color: white;
+  ion-buttons {
+    padding-top: 2px;
+
+    ion-menu-toggle {
+      ion-button {
+        --background: #f38f1e;
+        --color: #fff;
+        --background-activated-opacity: 0;
+        --background-focused-opacity: 0.24;
+        --background-hover-opacity: 0.08;
+        --box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+  
+  .back-wrapper {
     position: absolute;
-    background-color: rgba(0, 0, 0, .25);
     bottom: 20px;
-    border: none;
-    left: calc((100% - 80px) / 2);
+    width: 100%;
+
+    .back {
+      --color: #fff;
+      background-color: rgba(0, 0, 0, .25);
+      --border-color: transparent;
+    }
   }
 
   .cont-circle {
@@ -20,6 +38,10 @@
       width: 85%;
       display: flex;
       justify-content: center;
+    }
+
+    ion-button {
+      width: 100%;
     }
   }
   
