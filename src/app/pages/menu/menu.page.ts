@@ -20,8 +20,7 @@ export class MenuPage implements OnInit {
   }
 
   OpenProfilePage() {
-    //this.router.navigateByUrl('/menu');
-    //this.navCtrl.push(ProfilePage);
+    this.router.navigateByUrl('/profile');
   }
 
 }
