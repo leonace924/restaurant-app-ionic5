@@ -45,6 +45,22 @@ const routes: Routes = [
     path: 'order-confirmation',
     loadChildren: () => import('./pages/order-confirmation/order-confirmation.module').then( m => m.OrderConfirmationPageModule)
   },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'create-orders',
+    loadChildren: () => import('./pages/create-orders/create-orders.module').then( m => m.CreateOrdersPageModule)
+  },
+  {
+    path: 'payment-checkout',
+    loadChildren: () => import('./pages/payment-checkout/payment-checkout.module').then( m => m.PaymentCheckoutPageModule)
+  },
+  {
+    path: 'payment-options',
+    loadChildren: () => import('./pages/payment-options/payment-options.module').then( m => m.PaymentOptionsPageModule)
+  },
 ];
 
 @NgModule({

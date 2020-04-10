@@ -1,0 +1,145 @@
+page-general-menu {
+  .welcome {
+    height: 80px;
+    background: rgba(255, 255, 255, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }  
+
+  ion-list .item-md {
+    background: transparent;
+    color: --text-color-contrast;
+  }
+
+  .cart {
+    width: 45px;
+  }
+
+  .optionmenu {
+    position: sticky;
+    top: 80px;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 99;
+  }
+
+  .calification {
+    color: gold;
+  }
+
+  .toast-custom {
+    position: fixed;
+    bottom: -100%;
+    z-index: 99;
+    width: 100%;
+    background: white;
+    height: 10%;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 5px -1px;
+    padding: 15px;
+    transition: all 0.5s;
+  }
+
+  .toast-custom.toast-custom-up {
+    bottom: 0;
+  }
+
+  .price-total {
+    float: right;
+    position: relative;
+    top: 10px;
+    font-size: 1.2em;
+  }
+
+  /****************************************************
+			LOADING PERSONALIZADO
+			<div class="loader"></div>
+	****************************************************/
+
+  .loader {
+    border-left: 3px solid #f3f3f3;
+    /* Light grey */
+    border-right: 3px solid #f3f3f3;
+    border-top: 3px solid var(--ion-color-primary);
+    border-bottom: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 2s linear infinite;
+  }
+
+  .contloading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .textloading {
+    text-align: center;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /****************************************************
+		FIN LOADING PERSONALIZADO
+  ****************************************************/
+
+  .warning {
+    color: rgb(233, 237, 58);
+    font-size: 2em;
+  }
+
+  .message-warning {
+    font-size: 1em;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .ctrol-scroll .scroll-content {
+    margin-bottom: 60px;
+  }
+
+  .start {
+    color: yellow;
+  }
+
+  .containerButton {
+    background-color: #4c6df9;
+    color: white;
+  }
+
+  .confirm {
+    background: #df5915;
+  }
+
+  .readyOrder {
+    background: #fffa997e !important;
+  }
+
+  .lists {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lists p {
+    margin: 0 2px;
+  }
+
+  .number_list {
+    font-size: 17px;
+  }
+
+  ion-label {
+    margin: 1px !important;
+  }
+}

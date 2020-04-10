@@ -70,8 +70,8 @@ export class CategoriesPage implements OnInit {
         this.Menu.GetMenuGroup(this.ListMenu.id)
           .then(data => {
             this.loading = 0;
-            this.categories = data;/* 
-            this.categories = this.categories.filter(res => res.sub_category === null); */
+            this.categories = data; 
+            // this.categories = this.categories.filter(res => res.sub_category === null);
             this.categories = this.categories.filter( res => {
               if(!res.sub_category){
                 res.sub_categories = this.categories.filter(sub => sub.sub_category == res.id )
@@ -128,11 +128,15 @@ export class CategoriesPage implements OnInit {
       this.currentCategory = this.CategoryNavigation[this.CategoryNavigation.length - 1];
       this.LoadSubCategory(category);
     } else {
-      // this.navCtrl.push(GeneralMenuPage, {
-      //   category: category,
-      //   resto: this.ListMenu.restaurant,
-      //   sit_id: this.DataQr.sit_id
-      // });
+      
+      //  Leon check after API
+      /*
+      this.navCtrl.push(GeneralMenuPage, {
+        category: category,
+        resto: this.ListMenu.restaurant,
+        sit_id: this.DataQr.sit_id
+      });
+      */
     }
   }
   /*********************************************
@@ -172,4 +176,5 @@ export class CategoriesPage implements OnInit {
       }
     }); */
   }
+  
 }

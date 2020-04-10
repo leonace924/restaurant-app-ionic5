@@ -1,9 +1,99 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>general-menu</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ "Dishes" | translation: language }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [ngClass]="totalPrice > 0 ? 'ctrol-scroll' : null">
+  <div class="backg">
+    
+    <ion-searchbar (ionInput)="onSearch($event)" [animated]="true">
+    </ion-searchbar>
+  
+    <ion-list>
+      <ion-item
+        *ngFor="let option of searchItems; let i = index"
+        [ngClass]="this.ordersP.cart[option.pk] ? 'readyOrder' : null"
+        (click)="OpenOrders(option)"
+      >
+        <!-- <ion-thumbnail item-start>
+          <img
+            [src]="
+              option.dish_dimage[0]
+                ? option.dish_dimage[0]
+                : '../../assets/imgs/logo.jpg'
+            "
+          />
+        </ion-thumbnail> -->
+        <h2>{{ option.name }}</h2>
+        <!-- <p text-wrap>{{ option.description }}</p> -->
+        <p class="clasificacion">
+          <ion-icon class="start" name="star"></ion-icon>
+          <ion-icon class="start" name="star"></ion-icon>
+          <ion-icon class="start" name="star"></ion-icon>
+          <ion-icon class="start" name="star-half"></ion-icon>
+          <ion-icon class="start" name="star-outline"></ion-icon>
+        </p>
+        <div item-end>
+          <h1>{{ option.price | currency }}</h1>
+          <div class="lists">
+            <!-- 
+            <ion-icon name="cart"></ion-icon> -->
+            <!-- <p
+              class="number_list"
+              *ngIf="this.ordersP.cart[option.pk]; else nolist"
+            >
+              Qty: {{ this.ordersP.cart[option.pk].quantity }}
+            </p> -->
+            <!-- <ng-template #nolist>
+              <p class="number_list">
+                Qty: 0
+              </p>
+            </ng-template> -->
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  
+    <div class="textloading" *ngIf="loading == 1">
+      {{ "Loading_Categories" | translation: language }}
+      <div class="contloading">
+        <div class="loader"></div>
+      </div>
+    </div>
+  
+    <div *ngIf="error == 1 && loading == 0"  text-center>
+      <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+      <h3 class="message-warning" ion-text color="dark">
+        {{ "error_connecting_to_server" | translation: language }}<!-- Sorry, An error occurred while trying to connect to the server -->
+      </h3>
+    </div>
+  
+   <!--  <div *ngIf="loading == 0" text-center>
+      <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+      <h3 class="message-warning" ion-text color="dark">
+        {{ "There_are_no_dishes_availableat_this_time" | translation: language }}
+      </h3>
+    </div> -->
+    
+  </div>
 </ion-content>
+
+<div
+  *ngIf="totalPrice > 0"
+  [ngClass]="{ 'toast-custom': true, 'toast-custom-up': rec }"
+  class="containerButton"
+>
+  <div>
+    <button class="confirm" (click)="openCheck()" ion-button>
+      {{ "Generate_invoice" | translation: language }}
+    </button>
+    <span class="price-total">${{ totalPrice }}</span>
+  </div>
+</div>
+

@@ -20,7 +20,7 @@ Reference https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#br
 
 #### SCSS part:
 1. In component scss file
-page-home {
+```page-home {
   ...
 }
 
@@ -29,9 +29,10 @@ to
 :host {
 
 }
+```
 
 2. for border-bottom color of ion-input component
-use --border-color: #fff; like this
+use `--border-color: #fff;` like this
 
 3. 
 
@@ -52,7 +53,7 @@ https://ionicons.com/
 
 2) Second, on cmd "ionic generate pipe pipes/searchfilter" => this will generate two files in pipes.
 
-3 Third, create file in pipes folder with name "pipes.module.ts" and write below code to => "pipes.module.ts"
+3) Third, create file in pipes folder with name "pipes.module.ts" and write below code to => "pipes.module.ts"
 
 `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
