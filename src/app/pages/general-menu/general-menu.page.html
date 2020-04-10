@@ -67,11 +67,11 @@
       </div>
     </div>
   
-    <div *ngIf="error == 1 && loading == 0"  text-center>
+    <div *ngIf="error == 1 && loading == 0"  class="ion-text-center">
       <ion-icon class="iconInfo warning" name="warning"></ion-icon>
-      <h3 class="message-warning" ion-text color="dark">
-        {{ "error_connecting_to_server" | translation: language }}<!-- Sorry, An error occurred while trying to connect to the server -->
-      </h3>
+      <ion-text class="message-warning" ion-text color="dark">
+        <h3>{{ "error_connecting_to_server" | translation: language }}</h3> <!-- Sorry, An error occurred while trying to connect to the server -->
+      </ion-text>
     </div>
   
    <!--  <div *ngIf="loading == 0" text-center>
@@ -80,7 +80,7 @@
         {{ "There_are_no_dishes_availableat_this_time" | translation: language }}
       </h3>
     </div> -->
-    
+
   </div>
 </ion-content>
 
@@ -90,9 +90,9 @@
   class="containerButton"
 >
   <div>
-    <button class="confirm" (click)="openCheck()" ion-button>
+    <ion-button class="confirm" (click)="openCheck()">
       {{ "Generate_invoice" | translation: language }}
-    </button>
+    </ion-button>
     <span class="price-total">${{ totalPrice }}</span>
   </div>
 </div>
