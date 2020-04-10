@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>payment-checkout</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="backg">
+    <div class="header animated fadeInDown">
+      <ion-buttons slot="start">
+        <ion-menu-toggle>
+          <ion-button>
+            <ion-icon slot="icon-only" name="menu"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+  
+      <h3 class="welcome">Gracias por su Compra</h3>
+      <ion-button color="secondary" (click)="GoMenu()">
+        <ion-icon slot="start" name="arrow-round-back"></ion-icon>
+        {{ "Go_back_menu" | translation: language }}
+      </ion-button>
+    </div>
+  
+    <div class="circle">
+      <img src="../../assets/images/restaurant.jpg">
+    </div>
+  </div>
 </ion-content>

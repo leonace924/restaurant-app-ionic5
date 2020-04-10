@@ -1,0 +1,58 @@
+:host {
+  .header {
+    height: 115px;
+    background: #4c6df9;
+    position: relative;
+    border-bottom: 2px solid white;
+  }
+
+  .back {
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    left: calc((100% - 80px) / 2);
+  }
+
+  .welcome {
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+
+  .circle {
+    height: 150px;
+    width: 150px;
+    background: #4c6df9;
+    margin: 30px auto;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+  }
+
+  .circle img {
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    display: block;
+    margin: auto;
+  }
+
+  .mini-circle {
+    height: 80px;
+    margin: 10px;
+    display: flex;
+  }
+
+  .mini-circle div {
+    height: 85%;
+    width: 95%;
+    background: white;
+    margin: auto;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(27, 80, 97, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #4c6df9;
+  }
+}
