@@ -1,0 +1,103 @@
+:host {
+
+  .col {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .f-15 {
+    font-size: 14px;
+  }
+
+  .Confirmation_Orders {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: var(--ion-color-primary);
+  }
+
+  .OrderItem { 
+    background: white;
+    color: --ion-text-color-contrast;
+  }
+
+  .listContainer {
+    padding: 0 2rem;
+  }
+
+  .id-confirmation {
+    display: flex;
+    font-size: 13px;
+  }
+  
+  .time-confirmation{
+    font-size: 14px;
+  }
+
+  .title-Confirmation_Orders .toolbar-title-md {
+    position: relative;
+    color: rgb(255, 255, 255);
+  }
+
+  .buttonContainer {
+    padding: 2rem 0;
+  }
+
+  .itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+  }
+
+  .row {
+    width: 100%;
+  }
+
+  /****************************************************
+			LOADING PERSONALIZADO
+			<div class="loader"></div>
+	****************************************************/
+
+  .loader {
+    border-left: 3px solid #f3f3f3;
+    /* Light grey */
+    border-right: 3px solid #f3f3f3;
+    border-top: 3px solid var(--ion-color-primary);
+    border-bottom: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 2s linear infinite;
+  }
+
+  .contloading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .textloading {
+    text-align: center;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /****************************************************
+		FIN LOADING PERSONALIZADO
+  ****************************************************/
+  
+}

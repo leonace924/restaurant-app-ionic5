@@ -1,0 +1,69 @@
+<ion-header [translucent]="true" class="Confirmation_Orders">
+  <ion-toolbar color="primary">
+    <ion-title class="title-Confirmation_Orders">
+      {{ "Confirm_Order" | translation: language }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="backg">
+    <div class="buttonContainer ion-text-center">
+      <ion-button color="secondary" (click)="GoMenu()">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        {{ "Keep_Shopping" | translation: language }}
+      </ion-button>
+      <ng-container *ngIf="loading == 0">
+        <ion-button color="secondary" (click)="PayAllOrders(confirmOrder[0])">
+          Pagar todas las ordenes
+        </ion-button>
+      </ng-container>
+    </div>
+
+    <div *ngIf="loading == 0">
+      <ion-list *ngFor="let order of confirmOrder[0]" class="listContainer">
+          <ion-item (click)="ConfirmOrder(order)" class="OrderItem">
+            <ion-grid class="itemContainer">
+              <ion-row>
+                <ion-col col-3 class="icon-confirmation">
+                  {{ order.status | translation: language }}
+                </ion-col>
+                <ion-col col-2 class="f-15">
+                  <strong>${{ order.price }}</strong>
+                </ion-col>
+                <ion-col col-4>
+                  <h4>Orden #{{order.id}}</h4>
+                  <h4><strong>{{order.dish_name}}</strong></h4>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-note slot="end">x{{ order.quantity }}</ion-note>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="textloading" *ngIf="loading == 1">
+      Cargando...
+      <div class="contloading">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <div *ngIf="loading == 0 && !confirmOrder" class="ion-text-center">
+      <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+      <ion-text class="message-warning" color="dark">
+        <h3>{{ "No_results_at_the_time" | translation: language }}</h3>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>
+     

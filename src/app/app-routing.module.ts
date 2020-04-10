@@ -41,6 +41,10 @@ const routes: Routes = [
     path: 'option-restaurant',
     loadChildren: () => import('./pages/option-restaurant/option-restaurant.module').then( m => m.OptionRestaurantPageModule)
   },
+  {
+    path: 'order-confirmation',
+    loadChildren: () => import('./pages/order-confirmation/order-confirmation.module').then( m => m.OrderConfirmationPageModule)
+  },
 ];
 
 @NgModule({
