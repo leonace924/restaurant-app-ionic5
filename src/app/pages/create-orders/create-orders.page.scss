@@ -1,0 +1,146 @@
+:host {
+  /*  ion-content {
+      background: url("../../assets/imgs/fondo_madera.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    } */
+  
+  .slider-container {
+    height: 40%;
+    background: none !important;
+  }
+
+  .img-create-orders {
+    max-height: 140px;
+    padding: 10px;
+  }
+
+  .icon-orders {
+    margin: 2px;
+  }
+
+  .quantity {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .quantity__minus,
+  .quantity__plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 50%;
+  }
+
+  .quantity__input {
+    width: 20px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+  }
+
+  .additional-orders {
+    padding: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+
+  .toast-custom {
+    position: fixed;
+    bottom: -100%;
+    z-index: 99;
+    width: 100%;
+    background: white;
+    height: 10%;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 5px -1px;
+    padding: 15px;
+    transition: all 0.5s;
+  }
+
+  .toast-custom.toast-custom-up {
+    bottom: 0;
+  }
+
+  .price-total {
+    position: relative;
+    left: 40%;
+    top: 5px;
+  }
+
+  .character-info {
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  /* CARD CSS*/
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 33%;
+    font-size: 2em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .card-subtitle {
+    font-size: 1em;
+    position: absolute;
+    top: 49%;
+    width: 100%;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .badge-price {
+    font-size: 2em;
+    position: absolute;
+    bottom: 10%;
+    left: calc(50% - 50px);
+    width: 102px;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .no-margin {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .order-back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    color: white;
+    font-size: 30px;
+  }
+
+  .background-cover {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .add-to-cart-button {
+    border-radius: 20px;
+  }
+}

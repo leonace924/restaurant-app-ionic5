@@ -1,9 +1,78 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>create-orders</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-card class="no-margin slider-container">
+    <ion-slides pager="true">
+      
+      <ion-slide *ngFor="let item of dish_image">
+        <img [src]="item.image" />
+      </ion-slide>
 
+      <!-- <ion-slide style="background-color: green">
+        <img src="../../assets/imgs/login.png" />
+      </ion-slide>
+
+      <ion-slide style="background-color: blue">
+        <img src="../../assets/imgs/login.png" />
+      </ion-slide>
+
+      <ion-slide style="background-color: red">
+        <img src="../../assets/imgs/login.png" />
+      </ion-slide> -->
+    </ion-slides>
+    <ion-icon
+      (click)="closeModal()"
+      class="order-back-button"
+      name="arrow-round-back"
+    ></ion-icon>
+    <div class="card-title">{{ data.name }}</div>
+    <div class="card-subtitle">{{ data.description }}</div>
+    <span class="badge-price">{{ data.price | currency }}</span>
+    <div class="background-cover"></div>
+  </ion-card>
+
+  <div class="padding-xs ion-text-center">
+    <ion-button
+      class="add-to-cart-button"
+      [disabled]="count == 0"
+      expand="full"
+      (click)="AddCar()"
+    >
+      <ion-icon class="icon-orders" name="cart"></ion-icon>
+      {{ "add_to_cart" | translation: language }}
+    </ion-button>
+  </div>
+
+  <ion-item>
+    <div class="additional-title"><h4 class="padding-sm">{{ "Quantity" | translation: language }}</h4></div>
+    <div class="quantity">
+      <div class="quantity__minus" (click)="sub()">
+        <ion-icon name="remove"></ion-icon>
+      </div>
+      <input
+        name="quantity"
+        type="text"
+        class="quantity__input"
+        value="{{ count }}"
+      />
+      <div class="quantity__plus" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </div>
+    </div>
+  </ion-item>
+
+  <form>
+    <ion-list class="additional-orders">
+      <div class="additional-title">
+        <h5 class="padding-sm ion-text-center">{{ "Any_information_you_want_to_add" | translation: language }}</h5>
+      </div>
+      <ion-item>
+        <ion-label color="primary" position="floating">{{ "Type_Here" | translation: language }}</ion-label>
+        <ion-input
+          [(ngModel)]="additional"
+          name="additional"
+          maxlength="100"
+        ></ion-input>
+      </ion-item>
+      <p class="character-info">{{ additional.length }}/100</p>
+    </ion-list>
+  </form>
 </ion-content>
