@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PipesModule } from './pipes/pipes.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    ImagePicker,
     GooglePlus,/* 
     Facebook, */
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

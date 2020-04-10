@@ -32,12 +32,13 @@ export class AppComponent {
     });
   }
 
-  OpenPage(page: any){
+  OpenPage(page: any) {
     this.router.navigateByUrl(page);
     this.menuCtrl.close();
   }
 
   async logout() {
+    console.log('hello');
     let loader = await this.loadingCtrl.create({
       message: "Ending session...",
     });

@@ -1,9 +1,76 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>profile</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content padding class="animated fadeIn login auth-profile">
+ 
+  <div class="login-content">
+    <div class="big-picture-container">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()" class="profile-back-button">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
 
+    <div class="centro-forms ion-text-center">
+      <ion-avatar class="avatar-container" (click)="openGallery()">
+        <img [src]="userImage" class="profile-avatar">
+      </ion-avatar>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form" #profileFrom="ngForm" (ngSubmit)="Profile()">
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start class="text"></ion-icon>
+          {{ "Email" | translation: language }}
+        </ion-label>
+        <ion-input name="email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start class="text"></ion-icon>
+          {{ "First_Name" | translation: language }}
+        </ion-label>
+        <ion-input name="firstName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          {{ "last_name" | translation: language }}
+        </ion-label>
+        <ion-input name="lastName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          {{ "username" | translation: language }}
+        </ion-label>
+        <ion-input name="userName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          Phone Number
+        </ion-label>
+        <ion-input name="number" type="text"></ion-input>
+      </ion-item>
+
+    </form>
+
+    <div class="button-login">
+      <ion-button icon-start class="text ion-block" tappable (click)="Profile()">
+        <ion-icon name="log-in"></ion-icon>
+        Actualizar Datos
+      </ion-button>
+    </div>
+
+  </div>
 </ion-content>

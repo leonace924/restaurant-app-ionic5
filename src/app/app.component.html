@@ -43,11 +43,11 @@
 
     <ion-content>
       <ion-list>
-        <ion-item button (click)="OpenPage('qrScannerPage')">
+        <ion-item (click)="OpenPage('/qr-scanner')">
           <ion-icon name="qr-code"></ion-icon>
           {{ "QR_Scanner" | translation: language }}   
         </ion-item>
-        <ion-item button class="menu-item" (click)="OpenPage('profilePage')">
+        <ion-item class="menu-item" (click)="OpenPage('/profile')">
           <ion-icon name="person"></ion-icon>
           {{ "Profile" | translation: language }}   
         </ion-item> 
@@ -63,7 +63,7 @@
           <ion-icon name="star"></ion-icon>
           {{ "Promotions" | translation: language }}
         </button>  -->
-        <ion-item button menuClose (click)="logout()">
+        <ion-item auto-hide="true" (click)="logout()">
           <ion-icon name="log-out"></ion-icon>
           {{ "Log_Out" | translation: language }}   
         </ion-item>

@@ -718,10 +718,28 @@ page-categories {
 
 page-order-confirmation {
   .backg {
-    background: url("assets/images/fondo_madera.jpg");
+    background: url('assets/images/fondo_madera.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+  }
+}
+
+page-profile {
+  .auth-profile {
+    background-color: #fff;
+
+    &::after {
+      content: '';
+      background: url('assets/images/fondo_madera.jpg') no-repeat;
+      background-size: cover;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: 0;
+    }
   }
 }
