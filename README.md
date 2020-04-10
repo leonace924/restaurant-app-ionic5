@@ -20,7 +20,8 @@ Reference https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md#br
 
 #### SCSS part:
 1. In component scss file
-```page-home {
+```
+page-home {
   ...
 }
 
