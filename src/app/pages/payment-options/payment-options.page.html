@@ -1,9 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>payment-options</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ "Pay_Order" | translation: language }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="content ion-padding">
 
+  <div class="backg">
+    <h2 class="separator">Medios de pago disponibles</h2>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-button expand="block" color="secondary" (click)="goToCheckout()">Pagar con Efectivo</ion-button>
+        </ion-col>
+        <ion-col class="separator" col-12>
+          <span>O</span>
+        </ion-col>
+        <ion-col col-12>
+          <ion-button expand="block" color="secondary" (click)="MercadoPago()">Pagar con MercadoPago</ion-button>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col *ngIf="loader === false">
+          <form action="/procesar-pago" method="POST">
+            <script
+              src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+              data-preference-id="$$id$$">
+            </script>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="yellow__div"></div>
 </ion-content>
