@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { GeneralMenuPageRoutingModule } from './general-menu-routing.module';
 
 import { GeneralMenuPage } from './general-menu.page';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PipesModule,
     GeneralMenuPageRoutingModule
   ],
   declarations: [GeneralMenuPage]

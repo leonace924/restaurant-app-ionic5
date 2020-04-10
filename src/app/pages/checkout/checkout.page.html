@@ -1,9 +1,107 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>checkout</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ "Review_Order" | translation: language }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content><!-- 
+  <div class="big-picture-container"></div> -->
+  <div class="backg">
 
+    <ion-grid>
+      <ion-row class="containerSections">
+        <ion-col col-6 class="sections" text-center>
+          <div class="titleItem">Lorem Ipsum</div>
+          <div class="textMuted">(917) 444 0001</div>
+          <div class="textMuted">Buon appetito!</div>
+        </ion-col>
+        <ion-col col-6 class="sections" text-center>
+          <div class="titleItem">
+            <ion-icon class="iconText" name="person"></ion-icon> Lorem Ipsum
+          </div>
+          <div class="textMuted">(917) 444 0001</div>
+          <div class="textMuted">222 Main Street</div>
+          <div class="textMuted">Brooklyn NY-11223</div>
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <ion-item class="headerItems">
+          <h2 class="fontStrong">{{ checkInfo.length }} {{ "items" | translation: language }}</h2>
+        </ion-item>
+        <ion-item *ngFor="let item of checkInfo">
+          <ion-note class="fontStrong" item-start>
+            {{ item.quantity }} <span class="textMuted">x</span>
+          </ion-note>
+          <h2 class="fontStrong">{{ item.name }}</h2>
+          <ng-container *ngIf="item.quantity > 1">
+            <p>$ {{ item.price }}</p>
+          </ng-container>
+          <ion-note clear item-end class="fontStrong flexColum">
+            <ng-container *ngIf="reduction">
+              <span class="lineThrough textMuted">{{
+                item.price | currency
+              }}</span>
+            </ng-container>
+            <span> {{ item.price * item.quantity | currency }}</span>
+          </ion-note>
+  
+          <ng-container *ngIf="item.additional !== ''">
+            <ion-col class="aditional" ng-i col-12>{{ item.additional }}</ion-col>
+          </ng-container>
+        </ion-item>
+      </ion-list>
+      <ion-row class="totals">
+        <ion-col col-12 class="textRight"
+          >{{ "Subtotal" | translation: language }}: {{ subTotal | currency }}</ion-col
+        >
+        <ion-col col-12 class="textRight discountTotal"
+          >{{ "discount" | translation: language }}: ({{ valueDiscount * 0 }}%)
+          {{ discountTotal | currency }}</ion-col
+        >
+        <ion-col col-12 class="totalPay margY textRight"
+          >{{ "Total_to_pay" | translation: language }}: {{ total | currency }}</ion-col
+        >
+        <!-- <ion-col col-12 class="textRight">Tarjeta: $20.00</ion-col>
+        <ion-col col-12 class="textRight">Efectivo: $20.00</ion-col>
+        <ion-col col-12 class="textRight">Vuelto: $20.00</ion-col> -->
+        <ion-col col-12 class="margT textRight"
+          >{{ "vat" | translation: language }}: ({{ valueIvaTax * 10 }}%) {{ ivaTaxTotal | currency }}</ion-col
+        >
+      </ion-row>
+      <ion-row class="footerItems">
+        <ion-col col-12 class="textCenter fontStrong"
+          ><strong>{{ "Thanks_for_your_purchase" | translation: language }}</strong></ion-col
+        >
+        <ion-col col-12 class="textCenter fontStrong"
+          ><span class="checkout-pay"
+            >{{ currentDate | date: "d MMMM y" }} a las
+            {{ currentDate | date: "h:mm a" }}</span
+          ></ion-col
+        >
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <button color="light" (click)="viewCtrl.dismiss()" ion-button block lg>
+            <span class="button-checkout">{{ "Return_to_modify" | translation: language }}</span>
+          </button>
+        </ion-col>
+        <ion-col col-6 (click)="cancelOrder()">
+          <button color="danger" ion-button block lg>
+            <span class="button-checkout">{{ "Cancel_order" | translation: language }}</span>
+          </button>
+        </ion-col>
+        <ion-col col-12>
+          <button color="primary" ion-button block lg (click)="ConfirmOrder()">
+            <span class="button-checkout">{{ "Confirm_order" | translation: language }}</span>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>

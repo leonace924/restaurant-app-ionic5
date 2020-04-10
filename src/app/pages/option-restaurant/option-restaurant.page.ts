@@ -87,7 +87,6 @@ export class OptionRestaurantPage implements OnInit {
         sit_id: this.DataQr.sit_id 
       }
     };
-    console.log(DataQr.state.sit_id);
     this.router.navigate(['order-confirmation'], DataQr);
   }
 

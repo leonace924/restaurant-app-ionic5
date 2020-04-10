@@ -753,3 +753,23 @@ page-general-menu {
     width: 100%;
   }
 }
+
+page-checkout {
+  .backg {
+    background: url('/assets/images/fondo_madera.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  .big-picture-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
+      url('assets/images/logo.jpg') center no-repeat;
+    background-size: cover;
+    height: 180px;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+  }
+}

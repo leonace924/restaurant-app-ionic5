@@ -1,0 +1,100 @@
+:host {
+  .grid {
+    padding: 0 8px;
+  }
+
+  ion-item {
+    color: black;
+    background-color: transparent !important;
+  }
+  .textCenter {
+    text-align: center;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    font-size: 14px;
+  }
+
+  .textRight {
+    text-align: right;
+  }
+
+  .button-checkout {
+    font-size: 12px;
+  }
+
+  .fontStrong {
+    color: #313030;
+    font-weight: 500;
+  }
+
+  .lineThrough {
+    text-decoration: line-through;
+  }
+
+  .textMuted {
+    color: #666;
+    font-weight: normal;
+  }
+
+  .headerItems {
+    border-bottom: 2px solid rgb(31, 31, 31);
+  }
+
+  .footerItems {
+    border-top: 2px solid rgb(31, 31, 31);
+  }
+
+  .flexColum {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .totals {
+    ion-col {
+      color: #313030;
+    }
+  }
+
+  .totals {
+    ion-col.discountTotal {
+      color: rgb(226, 48, 48);
+    }
+  }
+
+  .totalPay {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .margY {
+    margin: 1rem 0;
+  }
+
+  .margT {
+    margin-top: 1rem;
+  }
+
+  .iconText {
+    margin-right: 0.5rem;
+  }
+
+  .containerSections {
+    margin-top: 1rem;
+    .sections {
+      div {
+        margin: 0.5rem 0;
+      }
+      .titleItem {
+        color: #313030;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .aditional {
+    font-size: 13px;
+    color: #ce7a7a;
+  }
+}

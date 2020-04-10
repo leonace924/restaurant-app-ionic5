@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { CreateOrdersPageRoutingModule } from './create-orders-routing.module';
 
 import { CreateOrdersPage } from './create-orders.page';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PipesModule,
     CreateOrdersPageRoutingModule
   ],
   declarations: [CreateOrdersPage]
