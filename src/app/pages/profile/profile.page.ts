@@ -95,7 +95,7 @@ export class ProfilePage implements OnInit {
     .then(() => {
       loader.dismiss();
       this.presentAlert('Usuario Actualizado');
-      //this.nav.setRoot(LoginPage);
+      // this.router.navigateByUrl('/login');
     }).catch(err => {
       loader.dismiss();
       this.presentToast("failed to update user");
