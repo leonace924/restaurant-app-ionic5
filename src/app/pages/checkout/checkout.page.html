@@ -9,18 +9,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content><!-- 
-  <div class="big-picture-container"></div> -->
+<ion-content>
+  <!-- <div class="big-picture-container"></div> -->
   <div class="backg">
 
     <ion-grid>
       <ion-row class="containerSections">
-        <ion-col col-6 class="sections" text-center>
+        <ion-col col-6 class="sections ion-text-center">
           <div class="titleItem">Lorem Ipsum</div>
           <div class="textMuted">(917) 444 0001</div>
           <div class="textMuted">Buon appetito!</div>
         </ion-col>
-        <ion-col col-6 class="sections" text-center>
+        <ion-col col-6 class="sections ion-text-center">
           <div class="titleItem">
             <ion-icon class="iconText" name="person"></ion-icon> Lorem Ipsum
           </div>
@@ -34,14 +34,14 @@
           <h2 class="fontStrong">{{ checkInfo.length }} {{ "items" | translation: language }}</h2>
         </ion-item>
         <ion-item *ngFor="let item of checkInfo">
-          <ion-note class="fontStrong" item-start>
+          <ion-note class="fontStrong" slot="start">
             {{ item.quantity }} <span class="textMuted">x</span>
           </ion-note>
           <h2 class="fontStrong">{{ item.name }}</h2>
           <ng-container *ngIf="item.quantity > 1">
             <p>$ {{ item.price }}</p>
           </ng-container>
-          <ion-note clear item-end class="fontStrong flexColum">
+          <ion-note fill="clear" slot="end" class="fontStrong flexColum">
             <ng-container *ngIf="reduction">
               <span class="lineThrough textMuted">{{
                 item.price | currency
@@ -55,6 +55,7 @@
           </ng-container>
         </ion-item>
       </ion-list>
+
       <ion-row class="totals">
         <ion-col col-12 class="textRight"
           >{{ "Subtotal" | translation: language }}: {{ subTotal | currency }}</ion-col
@@ -86,19 +87,19 @@
       </ion-row>
       <ion-row>
         <ion-col col-6>
-          <button color="light" (click)="viewCtrl.dismiss()" ion-button block lg>
+          <ion-button color="light" expand="block" (click)="viewCtrl.dismiss()" lg>
             <span class="button-checkout">{{ "Return_to_modify" | translation: language }}</span>
-          </button>
+          </ion-button>
         </ion-col>
         <ion-col col-6 (click)="cancelOrder()">
-          <button color="danger" ion-button block lg>
+          <ion-button color="danger" expand="block" lg>
             <span class="button-checkout">{{ "Cancel_order" | translation: language }}</span>
-          </button>
+          </ion-button>
         </ion-col>
         <ion-col col-12>
-          <button color="primary" ion-button block lg (click)="ConfirmOrder()">
+          <ion-button color="primary" expand="block" lg (click)="ConfirmOrder()">
             <span class="button-checkout">{{ "Confirm_order" | translation: language }}</span>
-          </button>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
