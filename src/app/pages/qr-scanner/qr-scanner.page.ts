@@ -73,7 +73,6 @@ export class QrScannerPage implements OnInit {
         state: { sit_id: 4 }
       };
 
-      console.log(DataQr.state.sit_id);
       this.ordersP.sit = DataQr.state.sit_id;
       this.router.navigate(['option-restaurant'], DataQr);
       //this.router.navigateByUrl('/qr-scanner');

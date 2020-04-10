@@ -5,6 +5,12 @@ import {
   MenuController,
 } from '@ionic/angular';
 
+/**
+ * HomePage
+ * Migration to Ionic 5
+ * Created by Leon : 8/4/20
+ */
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.page.html',

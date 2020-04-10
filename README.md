@@ -73,3 +73,27 @@ Now we have PipesModule we can generate more pipes and write them in pipesmodule
 5) Now go to page which you want to use pipe and open for example "anasayfa.module.ts" and import "PipesModule" and write it in @ngModel imports(it will be created automatically) Please be careful you will import PipesModule to something.MODULE.TS not something.page.ts
 
 Reference TranslationPipe in this project
+
+
+#### Pass data between pages using Router service
+
+There is multiple ways to pass a parameters from a page to another in Ionic v4 / Angular 7.2+:
+
+- Using Extras State (new since Angular 7.2) - Recommended
+
+Simple and clean
+
+`
+// original page
+let navigationExtras: NavigationExtras = { state: { foo: this.foo } };
+this.router.navigate(['destination-path'], navigationExtras);
+
+// destination page
+constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.foo= this.router.getCurrentNavigation().extras.state.foo;
+      }
+    });
+}
+`

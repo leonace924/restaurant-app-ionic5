@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>categories</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ ListMenu.name }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="show-back-button" defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="backg">
+
+    <div class="big-picture-container"></div>
+    <ion-list>
+      <ion-item *ngIf="pagination > 0" (click)="PopCategory()">
+        <ion-icon name="arrow-round-back"></ion-icon>&nbsp;
+        {{ "Go_Back_Category" | translation: language }} {{currentCategory.name}}
+      </ion-item>
+      <ion-item
+        *ngFor="let category of categories"
+        detail-push
+        class="item-list"
+        text-wrap
+        text-justify
+        (click)="OpenDishes(category)"
+      >
+        <p>
+          <b>{{ category.name }}</b>
+        </p>
+        <ion-note class="ion-margin" slot="end">
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  
+    <div class="textloading" *ngIf="loading == 1 && !categories">
+      {{ "Loading_Categories" | translation: language }}
+      <div class="contloading">
+        <div class="loader"></div>
+      </div>
+    </div>
+  
+    <div *ngIf="loading == 0 && !categories" text-center>
+        <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+        <h3 class="message-warning" ion-text color="dark">
+          {{ "No_results_at_the_time" | translation: language }}
+        </h3>
+      </div> 
+  
+    <div *ngIf="error == 1 && loading == 0" text-center>
+      <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+      <h3 class="message-warning" ion-text color="dark">
+        {{ "error_connecting_to_server" | translation: language }}
+      </h3>
+    </div>
+
+    <!--  <div *ngIf="error == 2 && loading == 0" text-center>
+       <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+       <h3 class="message-warning" ion-text color="dark">
+         This user does not belong to the restaurant
+       </h3>
+    </div> -->
+  </div>
 
 </ion-content>
+

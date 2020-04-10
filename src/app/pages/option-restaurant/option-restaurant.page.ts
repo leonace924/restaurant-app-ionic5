@@ -71,11 +71,17 @@ export class OptionRestaurantPage implements OnInit {
     this.router.navigate(['qr-scanner'], DataQr);
   }
 
-  OpenMenu(){
-    //this.navCtrl.push( CategoriesPage,{DataQr:this.DataQr});
+  OpenMenu() {
+    let DataQr: NavigationExtras = {
+      state: {
+        sit_id: this.DataQr.sit_id 
+      }
+    };
+    console.log(DataQr.state.sit_id);
+    this.router.navigate(['categories'], DataQr);
   }
 
-  OpenStatusOrder(){
+  OpenStatusOrder() {
     //this.navCtrl.push(OrderConfirmationPage, {DataQr:this.DataQr});
   }
 
