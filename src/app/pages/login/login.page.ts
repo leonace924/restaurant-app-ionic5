@@ -66,9 +66,9 @@ export class LoginPage implements OnInit {
     this.usersProvider.checkForUser()
       .then(data => {
         loader.dismiss();
-        if(data[0] !== null) {
-          // this.nav.setRoot(QrScannerPage);
-        }else {
+        if (data[0] !== null) {
+          this.router.navigateByUrl('/qr-scanner');
+        } else {
           return false;
         }
       })
@@ -92,10 +92,7 @@ export class LoginPage implements OnInit {
    *    FUNCION PARA REGISTRAR
    ************************************/
   register() {
-
-    // this should change just for testing
-    this.router.navigateByUrl('/home');
-    //this.router.navigateByUrl('/register');
+    this.router.navigateByUrl('/register');
   }
 
   /*************************************
@@ -112,7 +109,7 @@ export class LoginPage implements OnInit {
       .login(this.DataLogin.value)
       .then(() => {
         loader.dismiss();
-        //this.nav.setRoot(QrScannerPage);
+        this.router.navigateByUrl('/qr-scanner');
       })
       .catch(err => {
         loader.dismiss();

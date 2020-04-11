@@ -38,7 +38,6 @@ export class AppComponent {
   }
 
   async logout() {
-    console.log('hello');
     let loader = await this.loadingCtrl.create({
       message: "Ending session...",
     });
