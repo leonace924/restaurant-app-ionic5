@@ -9,13 +9,13 @@
       </div>
 
       <!-- Login form -->
-      <form class="list-form" #loginFrom="ngForm" (ngSubmit)="login()">
+      <form class="list-form" #form="ngForm" (ngSubmit)="login(form)">
         <ion-item>
           <ion-label position="floating" class="ion-align-items-center">
             <ion-icon name="mail" class="text"></ion-icon>
             {{ "username" | translation: language }}
           </ion-label>
-          <ion-input name="username" type="text" required></ion-input>
+          <ion-input ngModel name="username" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -23,26 +23,27 @@
             <ion-icon name="lock-closed" class="text"></ion-icon>
             {{ "password" | translation: language }}
           </ion-label>
-          <ion-input name="password" type="password" required></ion-input>
+          <ion-input ngModel name="password" type="password" required></ion-input>
         </ion-item>
-      </form>
 
-      <ion-text class="text item item-transparent ion-text-right" tappable (click)="forgotPass()">
-        <p class="text"><strong>{{ "recover_password" | translation: language }}</strong></p>
-      </ion-text>
+        <ion-text class="text item item-transparent ion-text-right" tappable (click)="forgotPass()">
+          <p class="text"><strong>{{ "recover_password" | translation: language }}</strong></p>
+        </ion-text>
+        
+      </form>
 
       <div class="language-sel-wrapper">
         <ion-item class="item-transparent">
-          <ion-label>  {{ "language" | translation: language }} </ion-label>
+          <ion-label> {{ "language" | translation: language }} </ion-label>
           <ion-select [(ngModel)]="selectOption" (ionChange)="changeLanguage($event)">
             <ion-select-option value="es">Español</ion-select-option>
             <ion-select-option value="en">English</ion-select-option>
           </ion-select>
         </ion-item>
-      </div>
+      </div>      
 
       <div class="button-wrapper">
-        <ion-button slot="start" expand="block" class="text" tappable (click)="login()">
+        <ion-button slot="start" expand="block" class="text" (click)="login(form)">
           <ion-icon name="log-in"></ion-icon>
           {{ "Enterokay" | translation: language }}
         </ion-button>

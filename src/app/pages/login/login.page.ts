@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  private DataLogin: FormGroup;
   language: any;
   selectOption: any;
 
@@ -31,7 +30,6 @@ export class LoginPage implements OnInit {
     public forgotCtrl: AlertController,
     public menu: MenuController,
     public toastCtrl: ToastController,
-    private formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
     public usersProvider: UsersService,
     private googlePlus: GooglePlus,/* 
@@ -44,10 +42,6 @@ export class LoginPage implements OnInit {
       menuElt.swipeGesture = false;
     });
 
-    this.DataLogin = this.formBuilder.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required]
-    });
     this.language = this.languageP.language;
     this.selectOption = this.language;
   }
@@ -74,7 +68,9 @@ export class LoginPage implements OnInit {
       })
       .catch(err => {
         loader.dismiss();
-        this.presentToast(err.detail);
+        if (err.detail) {
+          this.presentToast(err.detail);
+        }
       });
   }
 
@@ -98,7 +94,13 @@ export class LoginPage implements OnInit {
   /*************************************
    *    FUNCION PARA LLAMAR SERVICIO LOGUIN
    ************************************/
-  async login() {
+  async login(form: NgForm) {
+    let credential = {
+      username: form.value.username,
+      password: form.value.password
+    }
+    console.log(credential);
+
     let loader = await this.loadingCtrl.create({
       message: "Checking user..."
     });
@@ -106,7 +108,7 @@ export class LoginPage implements OnInit {
     await loader.present();
 
     this.usersProvider
-      .login(this.DataLogin.value)
+      .login(credential)
       .then(() => {
         loader.dismiss();
         this.router.navigateByUrl('/qr-scanner');

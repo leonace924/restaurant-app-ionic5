@@ -10,7 +10,7 @@
   .list-form {
     ion-item {
       --border-color: #dedede;
-      margin: 13px 8px 0 0;
+      margin: 13px 0 0 0;
 
       ion-label {
         display: flex;
@@ -31,15 +31,20 @@
       display: inline-block;
       font-size: 1.2em;
     }
-  }
 
-  ion-text.item-transparent {
-    display: block;
-    background-color: rgba(0, 0, 0, .3);
-    border-color: transparent;
-    color: white;
-    bottom: 10px;
+    ion-text.item-transparent {
+      display: block;
+      border-color: transparent;
+      color: white;
+      margin-top: 20px;
+      bottom: 10px;
+
+      p {
+        padding: 0;
+      }
+    }
   }
+  
 
   .item-select .label-md {
     color: #fff;
