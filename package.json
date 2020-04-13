@@ -70,13 +70,19 @@
   "cordova": {
     "plugins": {
       "phonegap-plugin-barcodescanner": {},
-      "cordova-plugin-telerik-imagepicker": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-telerik-imagepicker": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Allow Name to access your gallery"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "857183708390-683vp42bvlih5rqq62sclki80i7jijhu.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "15.0.1"
       },
       "cordova-plugin-ionic-keyboard": {}
     },
