@@ -90,10 +90,9 @@
   class="containerButton"
 >
   <div>
-    <ion-button class="confirm" (click)="openCheck()">
+    <ion-button class="confirm" routerLink="/checkout">
       {{ "Generate_invoice" | translation: language }}
     </ion-button>
     <span class="price-total">${{ totalPrice }}</span>
   </div>
 </div>
-
