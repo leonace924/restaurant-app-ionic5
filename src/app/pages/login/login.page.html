@@ -9,7 +9,7 @@
       </div>
 
       <!-- Login form -->
-      <form class="list-form" #form="ngForm" (ngSubmit)="login(form)">
+      <form class="list-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <ion-item>
           <ion-label position="floating" class="ion-align-items-center">
             <ion-icon name="mail" class="text"></ion-icon>
@@ -43,7 +43,7 @@
       </div>      
 
       <div class="button-wrapper">
-        <ion-button slot="start" expand="block" class="text" (click)="login(form)">
+        <ion-button slot="start" expand="block" class="text" (click)="login(loginForm)" [disabled]="loginForm.valid">
           <ion-icon name="log-in"></ion-icon>
           {{ "Enterokay" | translation: language }}
         </ion-button>
@@ -76,7 +76,7 @@
       <!-- Other links -->
       <div class="ion-margin-top">
         <ion-text class="ion-text-center" color="secondary" tappable>
-          <h4 class="text" (click)="register()">{{ "New_here" | translation: language }} <strong>{{ "SIGN_UP" | translation: language }}</strong></h4>
+          <h4 class="text" routerLink="/register">{{ "New_here" | translation: language }} <strong>{{ "SIGN_UP" | translation: language }}</strong></h4>
         </ion-text>
       </div>
     </div>

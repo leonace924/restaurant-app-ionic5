@@ -19,9 +19,6 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  ngOnInit() {
-  }
-
   language: any;
   selectOption: any;
 
@@ -48,6 +45,9 @@ export class LoginPage implements OnInit {
 
   ionViewDidEnter() {
     this.checkUser();
+  }
+
+  ngOnInit() {
   }
 
   async checkUser() {
@@ -82,13 +82,6 @@ export class LoginPage implements OnInit {
     this.languageP.switchLanguage(event.detail.value).then(() => {
       this.router.navigateByUrl('/login');
     });
-  }
-
-  /*************************************
-   *    FUNCION PARA REGISTRAR
-   ************************************/
-  register() {
-    this.router.navigateByUrl('/register');
   }
 
   /*************************************
