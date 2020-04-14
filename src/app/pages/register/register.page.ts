@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl, NgForm } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -85,7 +85,7 @@ export class RegisterPage implements OnInit {
   /*************************************
    FUNCION PARA LLAMAR SERVICIO REGISTER
   ************************************/
-  async register() {
+  async register(form: NgForm) {
     let loader = await this.loadingCtrl.create({
       message: "Checking user...",
     });
@@ -95,7 +95,7 @@ export class RegisterPage implements OnInit {
     this.usersProvider.register(this.DataRegister.value).then(() => {
       loader.dismiss();
       this.router.navigateByUrl('/login');
-    }).catch(error => {
+    }).catch(err => {
       loader.dismiss();
       this.presentToast("error when registering user");
     });
