@@ -102,11 +102,6 @@ export class RegisterPage implements OnInit {
 
   }
 
-  // go to login page
-  login() {
-    this.router.navigateByUrl('/login');
-  }
-
     /*************************************
    *    FUNCION PARA GOOGLE PLUS
    ************************************/
