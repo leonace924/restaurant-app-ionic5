@@ -67,9 +67,9 @@
       </div>
     </div>
   
-    <div *ngIf="error == 1 && loading == 0"  class="ion-text-center">
+    <div *ngIf="error == 1 && loading == 0" class="ion-text-center">
       <ion-icon class="iconInfo warning" name="warning"></ion-icon>
-      <ion-text class="message-warning" ion-text color="dark">
+      <ion-text class="message-warning" color="dark">
         <h3>{{ "error_connecting_to_server" | translation: language }}</h3> <!-- Sorry, An error occurred while trying to connect to the server -->
       </ion-text>
     </div>
