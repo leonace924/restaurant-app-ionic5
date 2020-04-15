@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content padding class="animated fadeIn login auth-profile">
+<ion-content class="animated fadeIn login auth-profile ion-padding">
  
   <div class="login-content">
     <div class="big-picture-container">
@@ -25,7 +25,7 @@
     <form class="list-form" #profileFrom="ngForm" (ngSubmit)="Profile()">
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="mail" item-start class="text"></ion-icon>
+          <ion-icon name="mail" slot="start" class="text"></ion-icon>
           {{ "Email" | translation: language }}
         </ion-label>
         <ion-input name="email" type="email"></ion-input>
@@ -33,7 +33,7 @@
 
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="mail" item-start class="text"></ion-icon>
+          <ion-icon name="mail" slot="start" class="text"></ion-icon>
           {{ "First_Name" | translation: language }}
         </ion-label>
         <ion-input name="firstName" type="text"></ion-input>
@@ -41,7 +41,7 @@
 
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
           {{ "last_name" | translation: language }}
         </ion-label>
         <ion-input name="lastName" type="text"></ion-input>
@@ -49,7 +49,7 @@
 
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
           {{ "username" | translation: language }}
         </ion-label>
         <ion-input name="userName" type="text"></ion-input>
@@ -57,7 +57,7 @@
 
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="lock-closed" item-start class="text"></ion-icon>
+          <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
           Phone Number
         </ion-label>
         <ion-input name="number" type="text"></ion-input>
