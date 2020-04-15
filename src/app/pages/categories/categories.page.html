@@ -42,18 +42,18 @@
       </div>
     </div>
   
-    <div *ngIf="loading == 0 && !categories" text-center>
-        <ion-icon class="iconInfo warning" name="warning"></ion-icon>
-        <h3 class="message-warning" ion-text color="dark">
-          {{ "No_results_at_the_time" | translation: language }}
-        </h3>
-      </div> 
-  
-    <div *ngIf="error == 1 && loading == 0" text-center>
+    <div *ngIf="loading == 0 && !categories" class="ion-text-center">
       <ion-icon class="iconInfo warning" name="warning"></ion-icon>
-      <h3 class="message-warning" ion-text color="dark">
-        {{ "error_connecting_to_server" | translation: language }}
-      </h3>
+      <ion-text class="message-warning" color="dark">
+        <h3>{{ "No_results_at_the_time" | translation: language }}</h3>
+      </ion-text>
+    </div> 
+  
+    <div *ngIf="error == 1 && loading == 0" class="ion-text-center">
+      <ion-icon class="iconInfo warning" name="warning"></ion-icon>
+      <ion-text class="message-warning" color="dark">
+        <h3>{{ "error_connecting_to_server" | translation: language }}</h3>
+      </ion-text>
     </div>
 
     <!--  <div *ngIf="error == 2 && loading == 0" text-center>
