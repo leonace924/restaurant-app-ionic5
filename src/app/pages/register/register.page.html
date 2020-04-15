@@ -46,8 +46,8 @@
         </ion-item>
 
         <ion-item *ngIf="DataRegister.get('Email').errors && DataRegister.get('Email').dirty">
-          <p color="danger" ion-text *ngIf="DataRegister.get('Email').hasError('required')">Field is required</p>
-          <p color="danger" ion-text *ngIf="DataRegister.get('Email').hasError('email')">It is not an email</p>
+          <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('required')">Field is required</p></ion-text>
+          <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('email')">It is not an email</p></ion-text>
         </ion-item>
 
         <ion-item>
@@ -75,16 +75,16 @@
 
         <ion-item>
           <ion-label position="floating">
-            <ion-icon name="phone-portrait"slot="start" class="text"></ion-icon>
+            <ion-icon name="phone-portrait" slot="start" class="text"></ion-icon>
             {{ "phone" | translation: language }}
           </ion-label>
-          <ion-input name="Phone" type="text" required></ion-input>
+          <ion-input name="Phone" type="text" required ngModel></ion-input>
         </ion-item>
       </form>
 
       <div class="ion-margin-top">
         <ion-button expand="block" color="dark" tappable (click)="register(registerForm)" [disabled]="registerForm.valid">
-            {{ "SIGN_UP" | translation: language }}
+          {{ "SIGN_UP" | translation: language }}
         </ion-button>
 
         <ion-text class="text ion-text-center">
@@ -94,7 +94,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-6>
-              <ion-button expand="block" class="btn-facebook"  (click)="LoginFacebook()">
+              <ion-button expand="block" class="btn-facebook" (click)="LoginFacebook()">
                 <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
               </ion-button>
             </ion-col>
