@@ -26,12 +26,4 @@ export class HomePage {
     this.menu.swipeGesture(true);
   }
 
-  OpenMenu() {
-    this.router.navigateByUrl('/menu');
-  }
-
-  OpenPage() {
-    this.router.navigateByUrl('/qr-scanner');
-  }
-
 }

@@ -15,12 +15,12 @@
 
 <ion-content [fullscreen]="true">
   <div class="image-container">
-    <div class="imgContainer" (click)="OpenMenu()">
+    <div class="imgContainer" routerLink="/menu">
       <span class="span-images">
         <img class="textImage" src="assets/images/menuArrow.svg" alt="Main Menu"/>
       </span>
     </div>
-    <div class="imgContainer" (click)="OpenPage()">
+    <div class="imgContainer" routerLink="/qr-scanner">
       <span class="span-images">
         <img class="textImage" src="../../../assets/images/QRmenu.svg" alt="QR menu"/>
       </span>
