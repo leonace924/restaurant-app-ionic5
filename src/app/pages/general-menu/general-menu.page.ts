@@ -30,7 +30,7 @@ export class GeneralMenuPage implements OnInit {
     public navCtrl: NavController,
     private Menu: MenuRestaurantService,
     public modalCtrl: ModalController,
-    private ordersP: OrdersService,
+    public ordersP: OrdersService,
     public languageP: LanguageService,
     private route: ActivatedRoute,
     public router: Router

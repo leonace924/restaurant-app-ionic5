@@ -10,6 +10,7 @@ import {
 
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { UsersService } from '../../services/users/users.service';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'page-profile',
@@ -17,6 +18,8 @@ import { UsersService } from '../../services/users/users.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+
+  language: any;
   userImage: any = null;
 
   private DataProfile: FormGroup;
@@ -27,6 +30,7 @@ export class ProfilePage implements OnInit {
     public toastCtrl: ToastController,
     private formBuilder: FormBuilder,
     public usersProvider: UsersService,
+    public languageP: LanguageService,
     private imagePicker: ImagePicker,
     private alertCtrl: AlertController,
     public router: Router
@@ -39,6 +43,8 @@ export class ProfilePage implements OnInit {
       userName: [usersProvider.userDetails.fk_user.username, Validators.required],
       number: [usersProvider.userDetails.telefono, Validators.required],
     });
+
+    this.language = this.languageP.language;
   }
 
   ngOnInit() {

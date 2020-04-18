@@ -4,6 +4,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { UsersService } from '../../services/users/users.service';
 import { OrdersService } from '../../services/orders/orders.service';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'page-qr-scanner',
@@ -12,14 +13,19 @@ import { OrdersService } from '../../services/orders/orders.service';
 })
 export class QrScannerPage implements OnInit {
 
+  language: any;
+
   constructor(
     public navCtrl: NavController,
     private alertCtrl: AlertController,
     private barcodeScanner: BarcodeScanner,
     private ordersP: OrdersService,
     private usersP: UsersService,
+    public languageP: LanguageService,
     public router: Router
-  ) {}
+  ) {
+    this.language = this.languageP.language;
+  }
 
   ngOnInit() {
   }
