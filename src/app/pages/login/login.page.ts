@@ -191,12 +191,13 @@ export class LoginPage implements OnInit {
    *    FUNCION PARA FACEBOOK
    ************************************/
 
-  /* LoginFacebook() {
-    this.fb
+  LoginFacebook() {
+    /* this.fb
       .login(["public_profile", "user_friends", "email"])
       .then((res: FacebookLoginResponse) =>
         console.log("Logged into Facebook!", res)
       )
       .catch(e => console.log("Error logging into Facebook", e));
-  } */
+    */
+  } 
 }

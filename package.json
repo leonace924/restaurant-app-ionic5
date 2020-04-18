@@ -64,7 +64,9 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "cordova-sqlite-storage": "^3.4.0",
+    "ionic-plugin-deeplinks": "^1.0.20"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -84,7 +86,26 @@
         "REVERSED_CLIENT_ID": "857183708390-683vp42bvlih5rqq62sclki80i7jijhu.apps.googleusercontent.com",
         "PLAY_SERVICES_VERSION": "15.0.1"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-sqlite-storage": {},
+      "ionic-plugin-deeplinks": {
+        "URL_SCHEME": "elrestoapp",
+        "DEEPLINK_SCHEME": "https",
+        "DEEPLINK_HOST": "elresto.com.ar",
+        "ANDROID_PATH_PREFIX": "C:/Program Files/Git/",
+        "ANDROID_2_PATH_PREFIX": "/",
+        "ANDROID_3_PATH_PREFIX": "/",
+        "ANDROID_4_PATH_PREFIX": "/",
+        "ANDROID_5_PATH_PREFIX": "/",
+        "DEEPLINK_2_SCHEME": " ",
+        "DEEPLINK_2_HOST": " ",
+        "DEEPLINK_3_SCHEME": " ",
+        "DEEPLINK_3_HOST": " ",
+        "DEEPLINK_4_SCHEME": " ",
+        "DEEPLINK_4_HOST": " ",
+        "DEEPLINK_5_SCHEME": " ",
+        "DEEPLINK_5_HOST": " "
+      }
     },
     "platforms": [
       "android"

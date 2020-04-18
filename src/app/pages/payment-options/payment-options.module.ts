@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { PaymentOptionsPageRoutingModule } from './payment-options-routing.module';
 
 import { PaymentOptionsPage } from './payment-options.page';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    PipesModule,
     PaymentOptionsPageRoutingModule
   ],
   declarations: [PaymentOptionsPage]

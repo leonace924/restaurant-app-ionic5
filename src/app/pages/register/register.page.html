@@ -45,10 +45,10 @@
           <ion-input name="Email" type="text" required ngModel></ion-input>
         </ion-item>
 
-        <ion-item *ngIf="DataRegister.get('Email').errors && DataRegister.get('Email').dirty">
+        <!-- <ion-item *ngIf="DataRegister.get('Email').errors && DataRegister.get('Email').dirty">
           <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('required')">Field is required</p></ion-text>
           <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('email')">It is not an email</p></ion-text>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item>
           <ion-label position="floating">
@@ -83,7 +83,7 @@
       </form>
 
       <div class="ion-margin-top">
-        <ion-button expand="block" color="dark" tappable (click)="register(registerForm)" [disabled]="registerForm.valid">
+        <ion-button expand="block" color="dark" tappable (click)="register(registerForm)">
           {{ "SIGN_UP" | translation: language }}
         </ion-button>
 
