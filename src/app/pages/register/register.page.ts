@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validators, FormBuilder, FormGroup, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -11,6 +11,7 @@ import {
 
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { UsersService } from '../../services/users/users.service';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'app-register',
@@ -18,64 +19,41 @@ import { UsersService } from '../../services/users/users.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
   private DataRegister: FormGroup;
+  language: any;
 
   constructor(
     public nav: NavController,
     public forgotCtrl: AlertController,
     public menu: MenuController,
     public toastCtrl: ToastController,
-    private formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
     public usersProvider: UsersService,
+    public languageP: LanguageService,
     public router: Router,
     private googlePlus: GooglePlus,
     /* private fb: Facebook */
   ) {
 
-    this.DataRegister = this.formBuilder.group({
-      FirstName: ['', Validators.required],
-      LastName: ['', Validators.required],
-      Username: ['', Validators.required],
-      Email: ['',[Validators.required, Validators.email]],
-      password: new FormControl('',[Validators.required,
-        ]),
-      passwordConfirmation: ['', Validators.required],
-      Phone: ['', Validators.required]
-    });    
-
-
-    /**************************************************
-      FUNCION PARA QUE LAS CONTRASEÑAS SEAN IGUALES
-    **************************************************/
-
-    this.DataRegister.controls['passwordConfirmation'].setValidators([
-      Validators.required,
-      this.
-      Different.bind(this.DataRegister)
-    ]);
-    this.DataRegister.controls['password'].setValidators([
-      Validators.required,
-      this.
-      Different.bind(this.DataRegister)
-    ]);
+    this.language = this.languageP.language;
   }
 
   ngOnInit() {
   }
 
   Different() {
-    let DataRegister: any = this;
+    // let DataRegister: any = this;
     const regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+){8,}$/;
 
-      if (DataRegister.controls['passwordConfirmation'].value === DataRegister.controls['password'].value && regex.test(DataRegister.controls['password'].value)) {
-        DataRegister.controls['passwordConfirmation'].status = "VALID";
-        DataRegister.controls['password'].status = "VALID";
-      } else {
-        DataRegister.controls['passwordConfirmation'].status = "INVALID";
-        DataRegister.controls['password'].status = "INVALID";
-      }
+    /*
+    if (DataRegister.controls['passwordConfirmation'].value === DataRegister.controls['password'].value && regex.test(DataRegister.controls['password'].value)) {
+      DataRegister.controls['passwordConfirmation'].status = "VALID";
+      DataRegister.controls['password'].status = "VALID";
+    } else {
+      DataRegister.controls['passwordConfirmation'].status = "INVALID";
+      DataRegister.controls['password'].status = "INVALID";
+    }
+    */
   }
 
   /****************************************************
@@ -129,11 +107,13 @@ export class RegisterPage implements OnInit {
    ************************************/
 
 
-  /* LoginFacebook(){
+  LoginFacebook() {
+    /*
     this.fb.login(['public_profile', 'user_friends', 'email'])
     .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
     .catch(e => console.log('Error logging into Facebook', e));
-  } */
+    */
+  }
 
   async presentToast(text) {
     let toast = await this.toastCtrl.create({
