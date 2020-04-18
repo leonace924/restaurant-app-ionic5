@@ -364,7 +364,7 @@ ion-toolbar.no-border {
     align-items: center;
     justify-content: center;
     padding: 16px;
-    min-height: 100%;
+    min-height: 100vh;
     --overflow: scroll;
     //background: rgba(50, 10, 92, .4);
 
@@ -387,7 +387,7 @@ ion-toolbar.no-border {
         background: rgba(0, 0, 0, 0.3);
 
         ion-item {
-          --background: none;
+          --background: transparent;
           padding: 0;
 
           &:first-child {
@@ -791,5 +791,23 @@ page-payment-options {
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      --color: #fff;
+    }
+  }
+}
+
+ion-menu-toggle {
+  ion-button {
+    --color: #fff;
+
+    ion-icon {
+      --color: #fff;
+    }
   }
 }

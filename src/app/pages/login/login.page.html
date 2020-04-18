@@ -9,7 +9,7 @@
       </div>
 
       <!-- Login form -->
-      <form class="list-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <form class="list-form" #loginForm="ngForm">
         <ion-item>
           <ion-label position="floating" class="ion-align-items-center">
             <ion-icon name="mail" class="text"></ion-icon>
@@ -29,7 +29,6 @@
         <ion-text class="text item item-transparent ion-text-right" tappable (click)="forgotPass()">
           <p class="text"><strong>{{ "recover_password" | translation: language }}</strong></p>
         </ion-text>
-        
       </form>
 
       <div class="language-sel-wrapper">
@@ -43,7 +42,7 @@
       </div>      
 
       <div class="button-wrapper">
-        <ion-button slot="start" expand="block" class="text" (click)="login(loginForm)" [disabled]="loginForm.valid">
+        <ion-button slot="start" expand="block" class="text" (click)="login(loginForm)">
           <ion-icon name="log-in"></ion-icon>
           {{ "Enterokay" | translation: language }}
         </ion-button>
