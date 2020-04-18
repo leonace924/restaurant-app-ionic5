@@ -34,7 +34,6 @@ export class RegisterPage implements OnInit {
     private googlePlus: GooglePlus,
     /* private fb: Facebook */
   ) {
-
     this.language = this.languageP.language;
   }
 

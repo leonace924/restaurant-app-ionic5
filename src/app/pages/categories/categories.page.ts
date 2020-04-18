@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'page-categories',
@@ -10,6 +11,7 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 })
 export class CategoriesPage implements OnInit {
 
+  language: any;
   categories: any;
   categoriesFiltered: any;
   loading: number = 1;
@@ -24,11 +26,12 @@ export class CategoriesPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     private Menu: MenuRestaurantService,
+    public languageP: LanguageService,
     private route: ActivatedRoute,
     public router: Router
   ) {
+    this.language = this.languageP.language;
 
-    console.log("contructor");
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.DataQr = {

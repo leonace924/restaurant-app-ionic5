@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavController, ModalController } from '@ionic/angular';
 import { OrdersService } from '../../services/orders/orders.service';
+import { LanguageService } from '../../services/language/language.service';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 })
 export class GeneralMenuPage implements OnInit {
 
+  language: any;
   category: any;
   resto_id: any;
   sit_id: any;
@@ -29,6 +31,7 @@ export class GeneralMenuPage implements OnInit {
     private Menu: MenuRestaurantService,
     public modalCtrl: ModalController,
     private ordersP: OrdersService,
+    public languageP: LanguageService,
     private route: ActivatedRoute,
     public router: Router
   ) {
@@ -42,6 +45,7 @@ export class GeneralMenuPage implements OnInit {
     console.log(this.category);
     this.initializeItems();
     this.totalPrice = 0;
+    this.language = this.languageP.language;
   }
 
   ngOnInit() {
@@ -81,7 +85,7 @@ export class GeneralMenuPage implements OnInit {
         this.loading = 0;
         this.initializeItems();
       })
-      .catch(error => {
+      .catch(err => {
         this.loading = 0;
         this.error = 1;
       });
@@ -123,8 +127,8 @@ export class GeneralMenuPage implements OnInit {
 
     if (val && val.trim() != "") {
       this.searchItems = this.searchItems.filter(
-        seachItem =>
-          seachItem.name.toLowerCase().indexOf(val.toLowerCase()) > -1
+        searchItem =>
+          searchItem.name.toLowerCase().indexOf(val.toLowerCase()) > -1
       );
     }
   }

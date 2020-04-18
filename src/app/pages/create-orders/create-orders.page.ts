@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavController, ModalController } from '@ionic/angular';
 import { OrdersService } from '../../services/orders/orders.service';
+import { LanguageService } from '../../services/language/language.service';
 
 @Component({
   selector: 'page-create-orders',
@@ -10,6 +11,7 @@ import { OrdersService } from '../../services/orders/orders.service';
 })
 export class CreateOrdersPage implements OnInit {
 
+  language: any;
   data: any;
   count = 1;
   rec = true;
@@ -20,8 +22,12 @@ export class CreateOrdersPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public viewCtrl: ModalController,
-    private ordersP: OrdersService
+    private ordersP: OrdersService,
+    public languageP: LanguageService
   ) {
+
+    this.language = this.languageP.language;
+    
     /************************************************
      *RECIBIR DATOS Y PRECARGAR INFORMACION DEL PEDIDO
      ************************************************/

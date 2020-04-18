@@ -4,6 +4,7 @@ import { NavController, ModalController, ToastController } from '@ionic/angular'
 import { UsersService } from '../../services/users/users.service';
 import { OrdersService } from '../../services/orders/orders.service';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
+import { LanguageService } from '../../services/language/language.service';
 
 /**
  * Checkout Page
@@ -18,7 +19,8 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 })
 export class CheckoutPage implements OnInit {
 
-  DataQR:any;
+  language: any;
+  DataQR: any;
   checkInfo: any[] = [];
   subTotal: any;
   valueDiscount: any;
@@ -36,6 +38,7 @@ export class CheckoutPage implements OnInit {
     public toastCtrl: ToastController,
     private usersP: UsersService,
     private menuP: MenuRestaurantService,
+    public languageP: LanguageService,
     private route: ActivatedRoute,
     public router: Router
   ) {
@@ -48,6 +51,7 @@ export class CheckoutPage implements OnInit {
     this.reduction = false;
     this.currentDate = new Date();
     this.DataQR = this.menuP.dataQR;
+    this.language = this.languageP.language;
 
     /*********************************************
      * CARGAR OBJETOS DEL PEDIDOS ALMACENADOS EN EL PROVIDER
@@ -121,5 +125,4 @@ export class CheckoutPage implements OnInit {
   
     await toast.present();
   }
-
 }

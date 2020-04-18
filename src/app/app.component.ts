@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { UsersService } from '../app/services/users/users.service';
+import { LanguageService } from '../app/services/language/language.service';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,21 @@ import { UsersService } from '../app/services/users/users.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  language: any;
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menuCtrl: MenuController,
     public usersProvider: UsersService,
+    public languageP: LanguageService,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public router: Router
   ) {
+    this.language = this.languageP.language;
+
     this.initializeApp();
   }
 
