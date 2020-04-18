@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { NavController, AlertController, ToastController, ActionSheetController, Platform } from '@ionic/angular';
 import { OrdersService } from '../../services/orders/orders.service';
+import { LanguageService } from '../../services/language/language.service';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
   styleUrls: ['./order-confirmation.page.scss'],
 })
 export class OrderConfirmationPage implements OnInit {
+
+  language: any;
   DataQr: any;
   confirmOrder = < any > [];
   loading: number = 0;
@@ -20,6 +23,7 @@ export class OrderConfirmationPage implements OnInit {
     public platform: Platform,
     private Menu: MenuRestaurantService,
     private Order: OrdersService,
+    public languageP: LanguageService,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController,
@@ -36,6 +40,7 @@ export class OrderConfirmationPage implements OnInit {
 
     this.confirmOrder = [];
     this.loading = 1;
+    this.language = this.languageP.language;
   }
 
   ngOnInit() {

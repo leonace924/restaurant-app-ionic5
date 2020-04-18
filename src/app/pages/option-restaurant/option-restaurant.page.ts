@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { NavController, ToastController, LoadingController, AlertController } from '@ionic/angular';
+import { NavController, LoadingController, AlertController } from '@ionic/angular';
+import { LanguageService } from '../../services/language/language.service';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 })
 export class OptionRestaurantPage implements OnInit {
 
+  language: any;
   DataQr: any;
   ListMenu: any;
   loading: any;
@@ -19,9 +21,9 @@ export class OptionRestaurantPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
-    private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     private Menu: MenuRestaurantService,
+    public languageP: LanguageService,
     private route: ActivatedRoute,
     public router: Router
   ) {
@@ -36,6 +38,7 @@ export class OptionRestaurantPage implements OnInit {
    
     this.Menu.setResto(this.DataQr);
     this.loading = 1;
+    this.language = this.languageP.language;
   }
 
   ngOnInit() {
