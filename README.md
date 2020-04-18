@@ -2,7 +2,7 @@
 Restaurant Ionic App
 
 - Android Publishing
-`ionic cordova build --release android` to generate apk
+`ionic cordova build android` to generate apk
 
 ### Guide for migration to Ionic 5
 
