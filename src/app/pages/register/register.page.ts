@@ -69,7 +69,7 @@ export class RegisterPage implements OnInit {
 
     await loader.present();
 
-    let credential = {
+    let formData = {
       email: form.value.email,
       username: form.value.username,
       firstName: form.value.firstName,
@@ -78,7 +78,7 @@ export class RegisterPage implements OnInit {
       password: form.value.password
     }
 
-    this.usersProvider.register(this.DataRegister.value).then(() => {
+    this.usersProvider.register(formData).then(() => {
       loader.dismiss();
       this.router.navigateByUrl('/login');
     }).catch(err => {
@@ -88,9 +88,10 @@ export class RegisterPage implements OnInit {
 
   }
 
-    /*************************************
+  /*************************************
    *    FUNCION PARA GOOGLE PLUS
    ************************************/
+  
   LoginGoogle() {
     /**.login({
               'webClientId':'XXXXXX.apps.googleusercontent.com',
