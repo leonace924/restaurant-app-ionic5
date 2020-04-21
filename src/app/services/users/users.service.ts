@@ -219,18 +219,20 @@ export class UsersService {
     return new Promise((resolve, reject) => {
       let url = URL_SERVICE + "/cliente/";
       
-     let form_register  =   {
-      "genero": 1,
-      "telefono": data.Phone,
-      "fk_user": {
-          "email": data.Email,
-          "username": data.Username,
-          "first_name": data.FirstName,
-          "last_name":data.LastName,
-          "password":  data.password
+      let form_register = {
+        "genero": 1,
+        "telefono": data.phone,
+        "fk_user": {
+          "email": data.email,
+          "username": data.username,
+          "first_name": data.firstName,
+          "last_name": data.lastName,
+          "password": data.password
         }
       }
-      console.log(form_register)   
+
+      console.log(form_register);
+
       let register = this.http.post(url, form_register);
       register.subscribe(
         data => {

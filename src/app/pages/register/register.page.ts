@@ -69,6 +69,15 @@ export class RegisterPage implements OnInit {
 
     await loader.present();
 
+    let credential = {
+      email: form.value.email,
+      username: form.value.username,
+      firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      phone: form.value.phone,
+      password: form.value.password
+    }
+
     this.usersProvider.register(this.DataRegister.value).then(() => {
       loader.dismiss();
       this.router.navigateByUrl('/login');
