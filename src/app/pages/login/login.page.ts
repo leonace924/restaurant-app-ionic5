@@ -92,7 +92,6 @@ export class LoginPage implements OnInit {
       username: form.value.username,
       password: form.value.password
     }
-    console.log(credential);
 
     let loader = await this.loadingCtrl.create({
       message: "Checking user..."
@@ -169,9 +168,9 @@ export class LoginPage implements OnInit {
    ************************************/
   LoginGoogle() {
     /**.login({
-              'webClientId':'XXXXXX.apps.googleusercontent.com',
-              'offline': true
-              }) */
+      'webClientId':'XXXXXX.apps.googleusercontent.com',
+      'offline': true
+      }) */
 
     this.googlePlus
       .login({})

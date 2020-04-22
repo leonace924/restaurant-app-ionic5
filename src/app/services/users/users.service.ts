@@ -100,13 +100,12 @@ export class UsersService {
         "imagen": null,
         "telefono": data.number,
         "fk_user": {
-            "email": data.email,
-            "username": data.username,
-            "first_name": data.firstName,
-            "last_name":data.lastName
-          }
+          "email": data.email,
+          "username": data.username,
+          "first_name": data.firstName,
+          "last_name":data.lastName
         }
-     
+      }
 
       let register = this.http.put(url, form_register, options);
       register.subscribe(
@@ -132,18 +131,17 @@ export class UsersService {
         })
       };
 
-      let form_register  =   {
+      let form_register = {
         "genero": 1,
         "imagen": null,
         "telefono": this.userDetails.number,
         "fk_user": {
-            "email": this.userDetails.email,
-            "username": this.userDetails.username,
-            "first_name": this.userDetails.firstName,
-            "last_name":this.userDetails.lastName
-          }
+          "email": this.userDetails.email,
+          "username": this.userDetails.username,
+          "first_name": this.userDetails.firstName,
+          "last_name":this.userDetails.lastName
         }
-     
+      }
 
       let register = this.http.put(url, form_register, options);
       register.subscribe(

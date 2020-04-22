@@ -93,9 +93,9 @@ export class RegisterPage implements OnInit {
   
   LoginGoogle() {
     /**.login({
-              'webClientId':'XXXXXX.apps.googleusercontent.com',
-              'offline': true
-              }) */
+      'webClientId':'XXXXXX.apps.googleusercontent.com',
+      'offline': true
+      }) */
     this.googlePlus
       .login({})
       .then(res => {
