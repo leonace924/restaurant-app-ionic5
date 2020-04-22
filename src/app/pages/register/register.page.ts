@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators, FormBuilder, FormGroup,  FormControl } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -19,12 +19,14 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  private registerForm: FormGroup;
   language: any;
 
   constructor(
     public nav: NavController,
     public forgotCtrl: AlertController,
     public menu: MenuController,
+    private formBuilder: FormBuilder,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public usersProvider: UsersService,
@@ -34,24 +36,48 @@ export class RegisterPage implements OnInit {
     /* private fb: Facebook */
   ) {
     this.language = this.languageP.language;
+
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['',[Validators.required, Validators.email]],
+      password: new FormControl('',[Validators.required,
+        ]),
+      passwordConfirmation: ['', Validators.required],
+      phone: ['', Validators.required]
+    });
+
+    /**************************************************
+      FUNCION PARA QUE LAS CONTRASEÑAS SEAN IGUALES
+    **************************************************/
+
+   this.registerForm.controls['passwordConfirmation'].setValidators([
+      Validators.required,
+      this.
+      Different.bind(this.registerForm)
+    ]);
+    this.registerForm.controls['password'].setValidators([
+      Validators.required,
+      this.
+      Different.bind(this.registerForm)
+    ]);
   }
 
   ngOnInit() {
   }
 
   Different() {
-    // let DataRegister: any = this;
+    let registerForm: any = this;
     const regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+){8,}$/;
 
-    /*
-    if (DataRegister.controls['passwordConfirmation'].value === DataRegister.controls['password'].value && regex.test(DataRegister.controls['password'].value)) {
-      DataRegister.controls['passwordConfirmation'].status = "VALID";
-      DataRegister.controls['password'].status = "VALID";
+    if (registerForm.controls['passwordConfirmation'].value === registerForm.controls['password'].value && regex.test(registerForm.controls['password'].value)) {
+      registerForm.controls['passwordConfirmation'].status = "VALID";
+      registerForm.controls['password'].status = "VALID";
     } else {
-      DataRegister.controls['passwordConfirmation'].status = "INVALID";
-      DataRegister.controls['password'].status = "INVALID";
+      registerForm.controls['passwordConfirmation'].status = "INVALID";
+      registerForm.controls['password'].status = "INVALID";
     }
-    */
   }
 
   /****************************************************
@@ -61,30 +87,29 @@ export class RegisterPage implements OnInit {
   /*************************************
    FUNCION PARA LLAMAR SERVICIO REGISTER
   ************************************/
-  async register(form: NgForm) {
+  async register() {
     let loader = await this.loadingCtrl.create({
       message: "Checking user...",
     });
 
     await loader.present();
 
-    let formData = {
-      email: form.value.email,
-      username: form.value.username,
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      phone: form.value.phone,
-      password: form.value.password
-    }
+    // let formData = {
+    //   email: form.value.email,
+    //   username: form.value.username,
+    //   firstName: form.value.firstName,
+    //   lastName: form.value.lastName,
+    //   phone: form.value.phone,
+    //   password: form.value.password
+    // }
 
-    this.usersProvider.register(formData).then(() => {
-      loader.dismiss();
-      this.router.navigateByUrl('/login');
-    }).catch(err => {
-      loader.dismiss();
-      this.presentToast("error when registering user");
-    });
-
+    // this.usersProvider.register(formData).then(() => {
+    //   loader.dismiss();
+    //   this.router.navigateByUrl('/login');
+    // }).catch(err => {
+    //   loader.dismiss();
+    //   this.presentToast("error when registering user");
+    // });
   }
 
   /*************************************

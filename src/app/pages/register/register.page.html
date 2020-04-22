@@ -12,13 +12,13 @@
       </div>
 
       <!-- Register form -->
-      <form class="list-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <form class="list-form" [formGroup]="registerForm" (ngSubmit)="register()">
         <ion-item>
           <ion-label position="floating">
             <ion-icon name="person" slot="start" class="text"></ion-icon>
             {{ "first_Name" | translation: language }}
           </ion-label>
-          <ion-input name="firstName" type="text" required ngModel></ion-input>
+          <ion-input formControlName="firstName" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -26,7 +26,7 @@
             <ion-icon name="person" slot="start" class="text"></ion-icon>
             {{ "last_name" | translation: language }}
           </ion-label>
-          <ion-input name="lastName" type="text" required ngModel></ion-input>
+          <ion-input formControlName="lastName" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -34,7 +34,7 @@
             <ion-icon name="person" slot="start" class="text"></ion-icon>
             {{ "username" | translation: language }}
           </ion-label>
-          <ion-input name="username" type="text" required ngModel></ion-input>
+          <ion-input formControlName="username" type="text" required></ion-input>
         </ion-item>
         
         <ion-item>
@@ -42,35 +42,34 @@
             <ion-icon name="mail" slot="start" class="text"></ion-icon>
             {{ "email" | translation: language }}
           </ion-label>
-          <ion-input name="email" type="text" required ngModel></ion-input>
+          <ion-input formControlName="email" type="text" required></ion-input>
         </ion-item>
 
-        <!-- <ion-item *ngIf="DataRegister.get('Email').errors && DataRegister.get('Email').dirty">
-          <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('required')">Field is required</p></ion-text>
-          <ion-text><p color="danger" *ngIf="DataRegister.get('Email').hasError('email')">It is not an email</p></ion-text>
-        </ion-item> -->
+        <ion-item *ngIf="registerForm.get('email').errors && registerForm.get('email').dirty">
+          <ion-text><p color="danger" *ngIf="registerForm.get('email').hasError('required')">Field is required</p></ion-text>
+          <ion-text><p color="danger" *ngIf="registerForm.get('email').hasError('email')">It is not an email</p></ion-text>
+        </ion-item>
 
         <ion-item>
           <ion-label position="floating">
             <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
             {{ "password" | translation: language }}
           </ion-label>
-          <ion-input name="password" type="password" required ngModel></ion-input>
+          <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
 
-      <!-- <ion-item *ngIf="DataRegister.get('password').errors && DataRegister.get('password').dirty">
-          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('required')">Field is required</p>
-          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('pattern')">This password is too common.</p>
-          <p color="danger" ion-text *ngIf="DataRegister.get('password').hasError('pattern')">This password is completely numeric.</p>
+        <ion-item *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
+          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('required')">Field is required</p>
+          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('pattern')">This password is too common.</p>
+          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('pattern')">This password is completely numeric.</p>
         </ion-item>
-          -->
 
         <ion-item>
           <ion-label position="floating">
             <ion-icon name="lock-closed" slot="start" class="text"></ion-icon>
             {{ "Confirm_Password" | translation: language }}
           </ion-label>
-          <ion-input name="passwordConfirmation" type="password" required ngModel></ion-input>
+          <ion-input formControlName="passwordConfirmation" type="password" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -78,12 +77,12 @@
             <ion-icon name="phone-portrait-sharp" slot="start" class="text"></ion-icon>
             {{ "phone" | translation: language }}
           </ion-label>
-          <ion-input name="phone" type="text" required ngModel></ion-input>
+          <ion-input formControlName="phone" type="text" required></ion-input>
         </ion-item>
       </form>
 
       <div class="ion-margin-top">
-        <ion-button expand="block" color="dark" tappable (click)="register(registerForm)">
+        <ion-button expand="block" color="dark" tappable (click)="register()" [disabled]="registerForm.valid">
           {{ "SIGN_UP" | translation: language }}
         </ion-button>
 
