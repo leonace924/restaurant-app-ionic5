@@ -62,7 +62,7 @@ export class LoginPage implements OnInit {
       .then(data => {
         loader.dismiss();
         if (data[0] !== null) {
-          this.router.navigateByUrl('/qr-scanner');
+          this.router.navigateByUrl('/home');
         } else {
           return false;
         }
@@ -105,7 +105,7 @@ export class LoginPage implements OnInit {
       .login(credential)
       .then(() => {
         loader.dismiss();
-        this.router.navigateByUrl('/qr-scanner');
+        this.router.navigateByUrl('/home');
       })
       .catch(err => {
         loader.dismiss();

@@ -8,4 +8,18 @@
       }
     }
   }
+
+  ion-content.md {
+    --background: #49362e;
+  }
+
+  .list-md {
+    background: #49362e;
+    --color: #fff;
+
+    ion-item {
+      --background: #49362e;
+      --color: #fff;
+    }
+  }
 }

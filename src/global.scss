@@ -414,6 +414,10 @@ ion-toolbar.no-border {
 
 // Menu user profile
 .user-profile {
+  padding: 4px !important;
+  min-height: 56px;
+  --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+
   .user-avatar {
     width: 68px;
     height: 68px;
@@ -423,9 +427,6 @@ ion-toolbar.no-border {
     img {
       border-radius: 50%;
     }
-  }
-  .toolbar-background {
-    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
   }
 
   .other-data {
