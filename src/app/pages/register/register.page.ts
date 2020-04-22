@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm, Validators, FormBuilder, FormGroup,  FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup,  FormControl } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -42,8 +42,7 @@ export class RegisterPage implements OnInit {
       lastName: ['', Validators.required],
       username: ['', Validators.required],
       email: ['',[Validators.required, Validators.email]],
-      password: new FormControl('',[Validators.required,
-        ]),
+      password: new FormControl('', [Validators.required,]),
       passwordConfirmation: ['', Validators.required],
       phone: ['', Validators.required]
     });
@@ -54,13 +53,11 @@ export class RegisterPage implements OnInit {
 
    this.registerForm.controls['passwordConfirmation'].setValidators([
       Validators.required,
-      this.
-      Different.bind(this.registerForm)
+      this.Different.bind(this.registerForm)
     ]);
     this.registerForm.controls['password'].setValidators([
       Validators.required,
-      this.
-      Different.bind(this.registerForm)
+      this.Different.bind(this.registerForm)
     ]);
   }
 
@@ -94,22 +91,15 @@ export class RegisterPage implements OnInit {
 
     await loader.present();
 
-    // let formData = {
-    //   email: form.value.email,
-    //   username: form.value.username,
-    //   firstName: form.value.firstName,
-    //   lastName: form.value.lastName,
-    //   phone: form.value.phone,
-    //   password: form.value.password
-    // }
-
-    // this.usersProvider.register(formData).then(() => {
-    //   loader.dismiss();
-    //   this.router.navigateByUrl('/login');
-    // }).catch(err => {
-    //   loader.dismiss();
-    //   this.presentToast("error when registering user");
-    // });
+    console.log(this.registerForm.value);
+    
+    this.usersProvider.register(this.registerForm.value).then(() => {
+      loader.dismiss();
+      this.router.navigateByUrl('/login');
+    }).catch(err => {
+      loader.dismiss();
+      this.presentToast("error when registering user");
+    });
   }
 
   /*************************************

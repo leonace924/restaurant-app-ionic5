@@ -59,9 +59,9 @@
         </ion-item>
 
         <ion-item *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
-          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('required')">Field is required</p>
-          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('pattern')">This password is too common.</p>
-          <p color="danger" ion-text *ngIf="registerForm.get('password').hasError('pattern')">This password is completely numeric.</p>
+          <ion-text><p color="danger" *ngIf="registerForm.get('password').hasError('required')">Field is required</p></ion-text>
+          <ion-text><p color="danger" *ngIf="registerForm.get('password').hasError('pattern')">This password is too common.</p></ion-text>
+          <ion-text><p color="danger" *ngIf="registerForm.get('password').hasError('pattern')">This password is completely numeric.</p></ion-text>
         </ion-item>
 
         <ion-item>
@@ -82,7 +82,7 @@
       </form>
 
       <div class="ion-margin-top">
-        <ion-button expand="block" color="dark" tappable (click)="register()" [disabled]="registerForm.valid">
+        <ion-button expand="block" color="dark" tappable (click)="register()" [disabled]="!registerForm.valid">
           {{ "SIGN_UP" | translation: language }}
         </ion-button>
 
