@@ -41,7 +41,7 @@ export class RegisterPage implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       username: ['', Validators.required],
-      email: ['',[Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: new FormControl('', [Validators.required,]),
       passwordConfirmation: ['', Validators.required],
       phone: ['', Validators.required]
@@ -68,7 +68,8 @@ export class RegisterPage implements OnInit {
     let registerForm: any = this;
     const regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+){8,}$/;
 
-    if (registerForm.controls['passwordConfirmation'].value === registerForm.controls['password'].value && regex.test(registerForm.controls['password'].value)) {
+    if (registerForm.controls['passwordConfirmation'].value === registerForm.controls['password'].value 
+        && regex.test(registerForm.controls['password'].value)) {
       registerForm.controls['passwordConfirmation'].status = "VALID";
       registerForm.controls['password'].status = "VALID";
     } else {
