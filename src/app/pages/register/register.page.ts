@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -19,7 +19,6 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  private DataRegister: FormGroup;
   language: any;
 
   constructor(

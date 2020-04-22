@@ -231,8 +231,6 @@ export class UsersService {
         }
       }
 
-      console.log(form_register);
-
       let register = this.http.post(url, form_register);
       register.subscribe(
         data => {
