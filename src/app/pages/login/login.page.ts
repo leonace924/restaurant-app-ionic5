@@ -39,8 +39,7 @@ export class LoginPage implements OnInit {
       menuElt.swipeGesture = false;
     });
 
-    this.language = this.languageP.language;
-    this.selectOption = this.language;
+    console.log('constructor');
   }
 
   ionViewDidEnter() {
@@ -48,6 +47,8 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    this.language = this.languageP.language;
+    this.selectOption = this.language;
   }
 
   async checkUser() {
@@ -81,6 +82,7 @@ export class LoginPage implements OnInit {
   changeLanguage(event: CustomEvent) {
     this.languageP.switchLanguage(event.detail.value).then(() => {
       this.router.navigateByUrl('/login');
+      this.ngOnInit();
     });
   }
 
