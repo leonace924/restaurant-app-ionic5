@@ -25,7 +25,7 @@ export class UsersService {
     var promise2 = this.storage.get(PREFIXE + "Data");
 
     return Promise.all([promise1, promise2]).then((data) => {
-      if(promise1 && promise2) {
+      if (promise1 && promise2) {
           this.DataUser = JSON.parse(data[1]).user;
           this.token = data[0];
 
@@ -33,7 +33,7 @@ export class UsersService {
           const token = localStorage.getItem(PREFIXE + "Token");
           const user = localStorage.getItem(PREFIXE + "Data");
 
-          if(!this.token){
+          if (!this.token) {
             const userDataTemp = JSON.parse(user);
             this.DataUser = userDataTemp.user;
             this.token = token;
@@ -176,7 +176,6 @@ export class UsersService {
       let login = this.http.post(url, postData);
       login.subscribe(
         (data: any) => {
-          //console.log(data);
           if (data.auth_token) {
             if (this.platform.is("cordova")) {
               this.storage.ready().then(() => {
@@ -193,7 +192,6 @@ export class UsersService {
 
               this.DataUser = data.user;
               this.token = data.auth_token;
-              console.log(this.DataUser);
               resolve();
             }
           } else {
@@ -295,5 +293,11 @@ export class UsersService {
         }
       );
     });
+  }
+
+  hasLoggedIn() {
+    if (this.DataUser)
+      return true;
+    return false;
   }
 }

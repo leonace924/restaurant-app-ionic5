@@ -14,6 +14,7 @@ import { LanguageService } from '../../services/language/language.service';
 export class QrScannerPage implements OnInit {
 
   language: any;
+  previousUrl: string;
 
   constructor(
     public navCtrl: NavController,
@@ -28,12 +29,13 @@ export class QrScannerPage implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   ionViewDidEnter() {
     this.usersP.getUserDetails()
     .then(res => {
-      console.log(res);
+      // console.log(res);
     })
     .catch(err => console.error(err))
   }
