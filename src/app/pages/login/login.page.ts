@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
   NavController,
   AlertController,
@@ -19,6 +19,7 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  loginForm: FormGroup;
   language: any;
   selectOption: any;
 
@@ -28,6 +29,7 @@ export class LoginPage implements OnInit {
     public menu: MenuController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
+    private formBuilder: FormBuilder,
     public usersProvider: UsersService,
     private googlePlus: GooglePlus,/* 
     private fb: Facebook, */
@@ -35,11 +37,12 @@ export class LoginPage implements OnInit {
     public router: Router,
     private cd: ChangeDetectorRef
   ) {
-    this.menu.get().then((menuElt: HTMLIonMenuElement) => {
-      menuElt.swipeGesture = false;
-    });
+    this.menu.swipeGesture(false);
 
-    console.log('constructor');
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   ionViewDidEnter() {
@@ -89,12 +92,7 @@ export class LoginPage implements OnInit {
   /*************************************
    *    FUNCION PARA LLAMAR SERVICIO LOGUIN
    ************************************/
-  async login(form: NgForm) {
-    let credential = {
-      username: form.value.username,
-      password: form.value.password
-    }
-
+  async login() {
     let loader = await this.loadingCtrl.create({
       message: "Checking user..."
     });
@@ -102,7 +100,7 @@ export class LoginPage implements OnInit {
     await loader.present();
 
     this.usersProvider
-      .login(credential)
+      .login(this.loginForm.value)
       .then(() => {
         loader.dismiss();
         this.router.navigateByUrl('/home');

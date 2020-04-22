@@ -9,13 +9,13 @@
       </div>
 
       <!-- Login form -->
-      <form class="list-form" #loginForm="ngForm">
+      <form class="list-form" [formGroup]="loginForm" (ngSubmit)="login()">
         <ion-item>
           <ion-label position="floating" class="ion-align-items-center">
             <ion-icon name="mail" class="text"></ion-icon>
             {{ "username" | translation: language }}
           </ion-label>
-          <ion-input ngModel name="username" type="text" required></ion-input>
+          <ion-input formControlName="username" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -23,7 +23,7 @@
             <ion-icon name="lock-closed" class="text"></ion-icon>
             {{ "password" | translation: language }}
           </ion-label>
-          <ion-input ngModel name="password" type="password" required></ion-input>
+          <ion-input formControlName="password" type="password" required></ion-input>
         </ion-item>
 
         <ion-text class="text item item-transparent ion-text-right" tappable (click)="forgotPass()">
@@ -42,7 +42,7 @@
       </div>      
 
       <div class="button-wrapper">
-        <ion-button slot="start" expand="block" class="text" (click)="login(loginForm)">
+        <ion-button slot="start" expand="block" class="text" (click)="login()">
           <ion-icon name="log-in"></ion-icon>
           {{ "Enterokay" | translation: language }}
         </ion-button>
