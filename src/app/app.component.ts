@@ -43,17 +43,15 @@ export class AppComponent {
     this.menuCtrl.close();
   }
 
-  async logout() {
-    this.menuCtrl.close();
-    
+  async logout() {    
     let loader = await this.loadingCtrl.create({
       message: "Ending session...",
     });
-    
     await loader.present();
 
     this.usersProvider.logout().then(() => {
       loader.dismiss();
+      this.menuCtrl.close();
       this.router.navigateByUrl('/login');
     }).catch(err => {
       loader.dismiss();
