@@ -4,6 +4,12 @@ import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { URL_SERVICE, PREFIXE } from '../../config/url.service';
 
+/**
+ * HomePage
+ * Migration to Ionic 5
+ * Updated by Leon : 24/04/20
+ */
+
 @Injectable({
   providedIn: 'root'
 })
@@ -251,8 +257,8 @@ export class UsersService {
 
       postData.append("email", email);
 
-      let RecoverPass = this.http.post(url, postData);
-      RecoverPass.subscribe(
+      let recoverPass = this.http.post(url, postData);
+      recoverPass.subscribe(
         data => {
           resolve(data);
         },
