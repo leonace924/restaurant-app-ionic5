@@ -12,6 +12,12 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { UsersService } from '../../services/users/users.service';
 import { LanguageService } from '../../services/language/language.service';
 
+/**
+ * HomePage
+ * Migration to Ionic 5
+ * Changed by Leon : 24/04/20
+ */
+
 @Component({
   selector: 'page-profile',
   templateUrl: './profile.page.html',
@@ -36,6 +42,8 @@ export class ProfilePage implements OnInit {
     public router: Router
   ) {
 
+    console.log(usersProvider.userDetails);
+
     this.DataProfile = this.formBuilder.group({
       email: [usersProvider.userDetails.fk_user.email, Validators.required],
       firstName: [usersProvider.userDetails.fk_user.first_name, Validators.required],
@@ -45,10 +53,11 @@ export class ProfilePage implements OnInit {
     });
 
     this.language = this.languageP.language;
+    console.log("constructor");
   }
 
   ngOnInit() {
-    console.log('ioDidLoad ProfilePage');
+    console.log('ngOnInit');
   }
 
   async openGallery() {
