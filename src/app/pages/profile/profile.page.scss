@@ -5,6 +5,44 @@
     background: transparent
   }
 
+  .scroll-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    --overflow: scroll;
+
+    .login-content {
+      width: 86%;
+
+      form.list-form {
+        --background: transparent;
+        padding: 0;
+        margin-bottom: 0;
+    
+        ion-item {
+          --background: transparent;
+          --border-color: #000;
+          margin: 13px 8px 0 0;
+    
+          ion-label {
+            display: flex;
+            align-items: center;
+            margin-top: 11px;
+            margin-bottom: 10px;
+    
+            ion-icon {
+              display: inline-block;
+              font-size: 1.2em;
+              margin-right: 8px;
+              fill: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .centro-forms {
     display: flex;
     justify-content: center;
@@ -19,15 +57,8 @@
     border-top-right-radius: 15px;
   }
 
-  .big-picture-container {
-    height: 180px;
-    width: 100%;
-    position: absolute;
-    padding: 10px;
-    left: 0px;
-    top: 0px;
-    z-index: 0;
-  }
+
+  
 
   .profile-item {
     padding: 0 16px;
@@ -52,48 +83,6 @@
     border: 3px solid black;
   }
 
-  .auth-profile {
-
-    .scroll-content {
-      //background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //background: rgba(50, 10, 92, .4);
-
-      .login-content {
-        width: 86%;
-        
-        .list-form {
-          padding: 0;
-          margin-bottom: 0;
-
-          ion-item {
-            background: none;
-            padding: 0;
-
-            &:first-child {
-              border-top: none;
-            }
-
-            &:after {
-              display: none;
-            }
-
-            ion-label {
-              font-size: 1em;
-              color: var(--ion-color-primary);
-            }
-
-            input {
-              color: var(--ion-color-primary);
-            }
-          }
-        }
-      }
-    }
-  }
-
   // Menu user profile
   .user-profile {
     .user-avatar {
@@ -101,7 +90,7 @@
       height: 68px;
       display: inline-block;
       border-radius: 50%;
-      box-shadow: inset 0 0 10rem rgba(0,0,0,.25), 0 0 4rem rgba(255,255,255,.45);
+      box-shadow: inset 0 0 10rem rgba(0, 0, 0, .25), 0 0 4rem rgba(255, 255, 255, .45);
       img {
         border-radius: 50%;
       }
@@ -130,28 +119,29 @@
     }
   }
 
-  .item-md,
-  .text,
-  .auth-profile .scroll-content .login-content .list-form ion-item input,
-  .auth-profile .scroll-content .login-content .list-form ion-item ion-label {
-    color: black;
-  }
-
   .item.item-trasparent {
     background-color: transparent;
     border-color: transparent;
-    color: black;
+    color: #000;
     bottom: 10px;
   }
 
   .item-select .label-md {
-    color: black;
+    color: #000;
   }
 
   .button-login {
     top: 20px;
     padding-bottom: 25px;
     position: relative;
+    z-index: 1;
+
+    ion-button {
+      --color: #000;
+
+      ion-icon {
+        fill: #000;
+      }
+    }
   }
-  
 }

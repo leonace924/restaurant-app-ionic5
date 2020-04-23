@@ -53,11 +53,9 @@ export class ProfilePage implements OnInit {
     });
 
     this.language = this.languageP.language;
-    console.log("constructor");
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
   }
 
   async openGallery() {
@@ -116,10 +114,6 @@ export class ProfilePage implements OnInit {
       this.presentToast("failed to update user");
     });
 
-  }
-
-  goBack() {
-    this.navCtrl.pop()
   }
 
   async presentToast(text) {
