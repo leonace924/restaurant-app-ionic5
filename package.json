@@ -30,6 +30,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "8.1.0",
+    "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-telerik-imagepicker": "^2.3.3",
     "core-js": "^2.5.4",
     "phonegap-plugin-barcodescanner": "^8.1.0",
@@ -105,7 +106,8 @@
         "DEEPLINK_4_HOST": " ",
         "DEEPLINK_5_SCHEME": " ",
         "DEEPLINK_5_HOST": " "
-      }
+      },
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"
