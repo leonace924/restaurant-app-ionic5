@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 import { LanguageService } from '../../services/language/language.service';
+
+/**
+ * HomePage
+ * Migration to Ionic 5
+ * Updated by Leon : 24/04/20
+ */
 
 @Component({
   selector: 'page-categories',
@@ -43,9 +49,6 @@ export class CategoriesPage implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  ionViewDidEnter() {
     //CICLO DE VIDA IONIC
     this.LoadMenu();
   }
@@ -57,7 +60,7 @@ export class CategoriesPage implements OnInit {
     this.CategoryNavigation = [];
     this.pagination = 0;
   }
-  
+
 
   LoadMenu() {
     /*********************************************
@@ -73,23 +76,23 @@ export class CategoriesPage implements OnInit {
             this.loading = 0;
             this.categories = data; 
             // this.categories = this.categories.filter(res => res.sub_category === null);
-            this.categories = this.categories.filter( res => {
-              if(!res.sub_category){
+            this.categories = this.categories.filter(res => {
+              if (!res.sub_category) {
                 res.sub_categories = this.categories.filter(sub => sub.sub_category == res.id )
                 return res
               }
             })
           })
-          .catch(error => {
+          .catch(err => {
             this.loading = 0;
-            if ((error.detail = error)) {
-              this.error = 2;
+            if ((err.detail = err)) {
+              this.err = 2;
             } else {
-              this.error = 1;
+              this.err = 1;
             }
           });
       })
-      .catch(error => {
+      .catch(err => {
         console.log("error");
         // this.loading = 0;
         // this.error = 1;
@@ -116,28 +119,27 @@ export class CategoriesPage implements OnInit {
   }
 
 
-
   /*********************************************
    * ABRIR MENU SEGUN EL MENU-GROUP SELECCIONADO
    ********************************************/
   OpenDishes(category) {
     this.categories = [];
     this.pagination = this.pagination + 1;
-    if (category.sub_category === null){
+
+    if (category.sub_category === null) {
       this.loading = 1;
       this.CategoryNavigation.push({name: category.name, id: category.menu});
       this.currentCategory = this.CategoryNavigation[this.CategoryNavigation.length - 1];
       this.LoadSubCategory(category);
-    } else {
-      
-      //  Leon check after API
-      /*
-      this.navCtrl.push(GeneralMenuPage, {
-        category: category,
-        resto: this.ListMenu.restaurant,
-        sit_id: this.DataQr.sit_id
-      });
-      */
+    } else {  
+      let data: NavigationExtras = {
+        state: {
+          category: category,
+          resto: this.ListMenu.restaurant,
+          sit_id: this.DataQr.sit_id
+        }
+      };
+      this.router.navigate(['general-menu'], data);
     }
   }
   /*********************************************
@@ -158,7 +160,6 @@ export class CategoriesPage implements OnInit {
       this.pagination = this.pagination - 1;
     }
   }
-
 
   LoadSubCategory(category) {
     this.categories = category.sub_categories;
