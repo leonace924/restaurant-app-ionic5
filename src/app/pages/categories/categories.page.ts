@@ -5,7 +5,7 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
 import { LanguageService } from '../../services/language/language.service';
 
 /**
- * HomePage
+ * CategoriesPage
  * Migration to Ionic 5
  * Updated by Leon : 24/04/20
  */
@@ -86,9 +86,9 @@ export class CategoriesPage implements OnInit {
           .catch(err => {
             this.loading = 0;
             if ((err.detail = err)) {
-              this.err = 2;
+              this.error = 2;
             } else {
-              this.err = 1;
+              this.error = 1;
             }
           });
       })
