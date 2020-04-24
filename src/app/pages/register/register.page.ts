@@ -13,6 +13,12 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { UsersService } from '../../services/users/users.service';
 import { LanguageService } from '../../services/language/language.service';
 
+/**
+ * RegisterPage
+ * Migration to Ionic 5
+ * Updated by Leon : 24/04/20
+ */
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',

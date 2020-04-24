@@ -300,10 +300,4 @@ export class UsersService {
       );
     });
   }
-
-  hasLoggedIn() {
-    if (this.DataUser)
-      return true;
-    return false;
-  }
 }
