@@ -41,9 +41,6 @@ export class ProfilePage implements OnInit {
     private alertCtrl: AlertController,
     public router: Router
   ) {
-
-    console.log(usersProvider.userDetails);
-
     this.DataProfile = this.formBuilder.group({
       email: [usersProvider.userDetails.fk_user.email, Validators.required],
       firstName: [usersProvider.userDetails.fk_user.first_name, Validators.required],

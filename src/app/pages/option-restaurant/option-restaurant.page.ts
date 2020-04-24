@@ -42,7 +42,6 @@ export class OptionRestaurantPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ionViewDidLoad OptionRestaurantPage');
   }
 
   ionViewDidEnter() {
@@ -80,7 +79,6 @@ export class OptionRestaurantPage implements OnInit {
         sit_id: this.DataQr.sit_id 
       }
     };
-    console.log(DataQr.state.sit_id);
     this.router.navigate(['categories'], DataQr);
   }
 

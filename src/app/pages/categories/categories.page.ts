@@ -39,7 +39,6 @@ export class CategoriesPage implements OnInit {
         };
       }
     });
-    console.log(this.DataQr);
     this.CategoryNavigation = [];
   }
 
@@ -47,7 +46,6 @@ export class CategoriesPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    console.log("didenter");
     //CICLO DE VIDA IONIC
     this.LoadMenu();
   }

@@ -16,7 +16,6 @@ export class MenuPage implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit MenuPage');
   }
 
 }
