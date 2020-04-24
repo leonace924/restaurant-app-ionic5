@@ -4,6 +4,12 @@ import { NavController, ModalController } from '@ionic/angular';
 import { OrdersService } from '../../services/orders/orders.service';
 import { LanguageService } from '../../services/language/language.service';
 
+/**
+ * CreateOrdersPage
+ * Migration to Ionic 5
+ * Updated by Leon : 24/04/20
+ */
+
 @Component({
   selector: 'page-create-orders',
   templateUrl: './create-orders.page.html',
@@ -23,7 +29,9 @@ export class CreateOrdersPage implements OnInit {
     public navCtrl: NavController,
     public viewCtrl: ModalController,
     private ordersP: OrdersService,
-    public languageP: LanguageService
+    public languageP: LanguageService,
+    private route: ActivatedRoute,
+    public router: Router
   ) {
 
     this.language = this.languageP.language;
@@ -33,14 +41,21 @@ export class CreateOrdersPage implements OnInit {
      ************************************************/
 
     //  Leon check after API
-    //let orders = navParams.get("orders");
-    // this.dish_image = [];
-    // this.data = orders;
-    // this.dish_image = orders.dish_dimage;
-    // if (this.ordersP.cart[orders.pk]) {
-    //   this.count = parseInt(this.ordersP.cart[orders.pk].quantity);
-    //   this.additional = this.ordersP.cart[orders.pk].additional;
-    // }
+    let orders;
+    
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        orders = this.router.getCurrentNavigation().extras.state.orders
+      }
+    });
+
+    this.dish_image = [];
+    this.data = orders;
+    this.dish_image = orders.dish_dimage;
+    if (this.ordersP.cart[orders.pk]) {
+      this.count = parseInt(this.ordersP.cart[orders.pk].quantity);
+      this.additional = this.ordersP.cart[orders.pk].additional;
+    }
 
     /************************************************
      *                FIN
