@@ -5,6 +5,12 @@ import { OrdersService } from '../../services/orders/orders.service';
 import { LanguageService } from '../../services/language/language.service';
 import { MenuRestaurantService } from '../../services/menurestaurant/menurestaurant.service';
 
+/**
+ * GeneralMenuPage
+ * Migration to Ionic 5
+ * Updated by Leon : 24/04/20
+ */
+
 @Component({
   selector: 'page-general-menu',
   templateUrl: './general-menu.page.html',

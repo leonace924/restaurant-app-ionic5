@@ -13,9 +13,9 @@ import { UsersService } from '../../services/users/users.service';
 import { LanguageService } from '../../services/language/language.service';
 
 /**
- * HomePage
+ * ProfilePage
  * Migration to Ionic 5
- * Changed by Leon : 24/04/20
+ * Updated by Leon : 24/04/20
  */
 
 @Component({
