@@ -27,8 +27,7 @@ export class ProfilePage implements OnInit {
 
   language: any;
   userImage: any = null;
-
-  private DataProfile: FormGroup;
+  DataProfile: FormGroup;
 
   constructor(
     public navCtrl: NavController,

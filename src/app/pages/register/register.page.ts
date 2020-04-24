@@ -19,8 +19,8 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  private registerForm: FormGroup;
   language: any;
+  registerForm: FormGroup;
 
   constructor(
     public nav: NavController,
