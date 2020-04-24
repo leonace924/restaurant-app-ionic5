@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { NavController, ModalController } from '@ionic/angular';
 import { OrdersService } from '../../services/orders/orders.service';
 import { LanguageService } from '../../services/language/language.service';
@@ -17,7 +17,6 @@ import { MenuRestaurantService } from '../../services/menurestaurant/menurestaur
   styleUrls: ['./general-menu.page.scss'],
 })
 export class GeneralMenuPage implements OnInit {
-
   language: any;
   category: any;
   resto_id: any;
@@ -43,10 +42,13 @@ export class GeneralMenuPage implements OnInit {
   ) {
     //RECIBIENDO LOS VALORES DE LA CATEGORIA PASDOS POR PARAMETROS
 
-    //  Leon check after API
-    // this.category = navParams.get("category");
-    // this.resto_id = navParams.get("resto");
-    // this.sit_id = navParams.get("sit_id");
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.category = this.router.getCurrentNavigation().extras.state.category;
+        this.resto_id = this.router.getCurrentNavigation().extras.state.resto_id;
+        this.sit_id = this.router.getCurrentNavigation().extras.state.sit_id;
+      }
+    });
 
     console.log(this.category);
     this.initializeItems();
@@ -62,10 +64,10 @@ export class GeneralMenuPage implements OnInit {
    ***********************************************************/
 
   OpenOrders(option) {
-    //  Leon check after API
-    // let pageCreateOrder = this.navCtrl.push(CreateOrdersPage, {
-    //   orders: option
-    // });
+    let data: NavigationExtras = {
+      state: { orders: option } 
+    };
+    this.router.navigate(['option-restaurant'], data);
   }
 
   /************************************************************
