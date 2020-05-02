@@ -39,7 +39,6 @@ export class CheckoutPage implements OnInit {
     private usersP: UsersService,
     private menuP: MenuRestaurantService,
     public languageP: LanguageService,
-    private route: ActivatedRoute,
     public router: Router
   ) {
     this.subTotal = 0;
@@ -51,7 +50,7 @@ export class CheckoutPage implements OnInit {
     this.reduction = false;
     this.currentDate = new Date();
     this.DataQR = this.menuP.dataQR;
-    this.language = this.languageP.language;
+    this.language = localStorage.getItem('language');
 
     /*********************************************
      * CARGAR OBJETOS DEL PEDIDOS ALMACENADOS EN EL PROVIDER
